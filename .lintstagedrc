@@ -1,5 +1,5 @@
 {
-    "**/*.{md,ts,tsx,json,scss,less,styl}": [
+    "**/*.{md,ts,tsx,json,scss,less}": [
         "prettier --write"
     ]
 }
