@@ -1,0 +1,138 @@
+@use 'sass:map';
+
+@import './utils/maps';
+
+// All props are optional and default to null
+@mixin layout(
+    $blockSize: null,
+    $captionSide: null,
+    $clear: null,
+    $inlineSize: null,
+    $maxBlockSize: null,
+    $maxInlineSize: null,
+    $minBlockSize: null,
+    $minInlineSize: null,
+    $overflow: null,
+    $overflowBlock: null,
+    $overflowInline: null,
+    $overscrollBehavior: null,
+    $overscrollBehaviorBlock: null,
+    $overscrollBehaviorInline: null,
+    $resize: null,
+    $textAlign: null
+) {
+    // If $captionSide is a directional value, map it to use its logical equivalent
+    @if $captionSide == top or $captionSide == bottom {
+        caption-side: map.get($logicalMap, $captionSide);
+    } @else {
+        // Else use the raw $captionSide value
+        caption-side: $captionSide;
+    }
+
+    // If $clear is a directional value, map it to use its logical equivalent
+    @if $clear == left or $clear == right {
+        clear: map.get($logicalMap, $clear);
+    } @else {
+        // Else use the raw $clear value
+        clear: $clear;
+    }
+
+    // If $resize is a directional value, map it to use its logical equivalent
+    @if $resize == vertical or $resize == horizontal {
+        resize: map.get($logicalMap, $resize);
+    } @else {
+        // Else use the raw $resize value
+        resize: $resize;
+    }
+
+    // If $textAlign is a directional value, map it to use its logical equivalent
+    @if $textAlign == left or $textAlign == right {
+        text-align: map.get($alignmentMap, $textAlign);
+    } @else {
+        // Else use the raw $textAlign value
+        text-align: $textAlign;
+    }
+
+    block-size: $blockSize;
+    max-block-size: $maxBlockSize;
+    min-block-size: $minBlockSize;
+    inline-size: $inlineSize;
+    max-inline-size: $maxInlineSize;
+    min-inline-size: $minInlineSize;
+    overflow: $overflow;
+    overflow-block: $overflowBlock;
+    overflow-inline: $overflowInline;
+    overscroll-behavior: $overscrollBehavior;
+    overscroll-behavior-block: $overscrollBehaviorBlock;
+    overscroll-behavior-inline: $overscrollBehaviorInline;
+
+    @if map.get($logicalMap, $captionSide) {
+        @supports not (caption-side: block-end) {
+            // If $captionSide is a logical value, map it to its directional value fallback
+            @if $captionSide == block-start or $captionSide == block-end {
+                caption-side: map.get($logicalMap, $captionSide);
+            } @else {
+                // Else use the raw $captionSide value
+                caption-side: $captionSide;
+            }
+        }
+    }
+
+    @if map.get($logicalMap, $clear) {
+        @supports not (clear: inline-end) {
+            // If $clear is a logical value, map it to its directional value fallback
+            @if $clear == inline-start or $clear == inline-end {
+                clear: map.get($logicalMap, $clear);
+            } @else {
+                // Else use the raw $clear value
+                clear: $clear;
+            }
+        }
+    }
+
+    @if map.get($logicalMap, $resize) {
+        @supports not (resize: block) {
+            // If $resize is a logical value, map it to its directional value fallback
+            @if $resize == block or $resize == inline {
+                resize: map.get($logicalMap, $resize);
+            } @else {
+                // Else use the raw $resize value
+                resize: $resize;
+            }
+        }
+    }
+
+    @if map.get($alignmentMap, $textAlign) {
+        @supports not (text-align: end) {
+            // If $textAlign is a logical value, map it to its directional value fallback
+            @if $textAlign == start or $textAlign == end {
+                text-align: map.get($alignmentMap, $textAlign);
+            } @else {
+                // Else use the raw $textAlign value
+                text-align: $textAlign;
+            }
+        }
+    }
+
+    @supports not (block-size: 1rem) {
+        height: $blockSize;
+        max-height: $maxBlockSize;
+        min-height: $minBlockSize;
+    }
+
+    @supports not (inline-size: 1rem) {
+        max-width: $maxInlineSize;
+        min-width: $minInlineSize;
+        width: $inlineSize;
+    }
+
+    @supports not (overflow-block: auto) {
+        overflow-x: $overflowInline;
+        overflow-y: $overflowBlock;
+    }
+
+    @supports not (overscroll-behavior-block: auto) {
+        overscroll-behavior-x: $overscrollBehaviorInline;
+        overscroll-behavior-y: $overscrollBehaviorBlock;
+    }
+}
