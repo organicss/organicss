@@ -1,0 +1,63 @@
+// All props are optional and default to null.
+
+// TODO:
+//  - Refactor axis props to support list values in @supports fallback ($block: 1rem 2rem)
+
+@mixin margin(
+    $block: null,
+    $blockEnd: null,
+    $blockStart: null,
+    $inline: null,
+    $inlineEnd: null,
+    $inlineStart: null,
+    $margin: null,
+    $scroll: null,
+    $scrollBlock: null,
+    $scrollBlockEnd: null,
+    $scrollBlockStart: null,
+    $scrollInline: null,
+    $scrollInlineEnd: null,
+    $scrollInlineStart: null
+) {
+    // General value that apply to more than one side
+    margin: $margin;
+
+    // Axis specific values to apply to two sides
+    margin-block: $block;
+    margin-inline: $inline;
+
+    // Side specific values to overwrite any general or axis values
+    margin-block-end: $blockEnd;
+    margin-block-start: $blockStart;
+    margin-inline-end: $inlineEnd;
+    margin-inline-start: $inlineStart;
+
+    // General scroll values that apply to more than one side
+    scroll-margin: $scroll;
+
+    // Axis specific values to apply to two sides
+    scroll-margin-block: $scrollBlock;
+    scroll-margin-inline: $scrollInline;
+
+    // Side specific scroll values to overwrite any general or axis values
+    scroll-margin-block-end: $scrollBlockEnd;
+    scroll-margin-block-start: $scrollBlockStart;
+    scroll-margin-inline-end: $scrollInlineEnd;
+    scroll-margin-inline-start: $scrollInlineStart;
+
+    @supports not (margin-block-end: 1rem) {
+        // Side-specific fallbacks or axis-specific fallbacks
+        margin-bottom: $blockEnd or $block;
+        margin-left: $inlineStart or $inline;
+        margin-right: $inlineEnd or $inline;
+        margin-top: $blockStart or $block;
+    }
+
+    @supports not (scroll-margin-block: 1rem) {
+        // Side-specific fallbacks or axis-specific fallbacks
+        scroll-margin-bottom: $scrollBlockEnd or $scrollBlock;
+        scroll-margin-left: $scrollInlineStart or $scrollInline;
+        scroll-margin-right: $scrollInlineEnd or $scrollInline;
+        scroll-margin-top: $scrollBlockStart or $scrollBlock;
+    }
+}
