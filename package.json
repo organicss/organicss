@@ -1,24 +1,32 @@
 {
-  "name": "organicss",
-  "version": "0.0.0",
-  "private": true,
-  "description": "OrganiCSS is a collection of mixins for writing logical CSS in different pre-processors and libraries.",
-  "main": "index.js",
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {},
-  "author": "Daniel Yuschick <daniel.yuschick@gmail.com>",
-  "license": "UNLICENSED",
-  "keywords": [
-    "organicss",
-    "css",
-    "logical",
-    "mixins",
-    "styled components",
-    "scss",
-    "sass",
-    "less",
-    "stylus"
-  ]
+    "name": "organicss",
+    "version": "0.0.0",
+    "private": true,
+    "description": "OrganiCSS is a collection of mixins for writing logical CSS in different pre-processors and libraries.",
+    "main": "index.js",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "prettier": "prettier ./ --check",
+        "prettier:fix": "npm run prettier -- --write"
+    },
+    "author": "Daniel Yuschick <daniel.yuschick@gmail.com>",
+    "license": "UNLICENSED",
+    "keywords": [
+        "organicss",
+        "css",
+        "logical",
+        "mixins",
+        "styled components",
+        "scss",
+        "sass",
+        "less",
+        "stylus"
+    ],
+    "devDependencies": {
+        "prettier": "^2.7.1",
+        "prettier-eslint": "^15.0.1",
+        "prettier-eslint-cli": "^6.0.1"
+    }
 }
