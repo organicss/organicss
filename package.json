@@ -40,7 +40,7 @@
     "dependencies": {},
     "husky": {
         "hooks": {
-            "pre-commit": "yarn format"
+            "pre-commit": "npm run format"
         }
     }
 }

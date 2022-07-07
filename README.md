@@ -7,14 +7,14 @@ CSS in many different flavors.
 
 ## What is Logical CSS?
 
-"The web has firmly shifted into an expectation of responsive, user-friendly sites and products. That fluidity has allowed the platform to scale at tremendous rates, and has fully altered entire markets and industries. But in the pursuit of supporting more and more devices, what happens if one of those devices isn't in English? Or French? Or any other language that flows from top to bottom, left to right?
+"The web has firmly shifted into an expectation of responsive, user-friendly sites and products.
+That fluidity has allowed the platform to scale at tremendous rates, and has fully altered entire
+markets and industries. But in the pursuit of supporting more and more devices, what happens if one of those devices isn't in English? Or French? Or any other language that flows from top to bottom, left to right?
 
 > Building inclusive products doesn't mean supporting devices, but supporting the people using them.
 
 Looking at Hebrew specifically, a language written and read from right to left, there're plenty of
-styling challenges in handling this minor variation. Instances of `text-align: left` would need to
-be conditionally updated to `text-align: right` or an entirely separate set of styles is loaded,
-essentially creating a second unique version of the site or product.
+styling challenges in handling this minor variation. Instances of `text-align: left` would need to be conditionally updated to `text-align: right` or an entirely separate set of styles is loaded, essentially creating a second unique version of the site or product.
 
 What happens then with Japanese, where text flows from top to bottom, and content from right to
 left? Or Mongolian where the text flows the same, but the content is flipped to flow left to right?
