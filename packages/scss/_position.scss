@@ -1,0 +1,85 @@
+@import './utils/maps';
+
+// All props are optional and default to null
+@mixin position(
+    $blockEnd: null,
+    $blockStart: null,
+    $float: null,
+    $inlineEnd: null,
+    $inlineStart: null,
+    $inset: null
+) {
+    // Get possible $inset list length to manually map to @supports fallbacks
+    $insetLength: list.length($inset);
+
+    // If $float is a directional value, map it to use its logical equivalent
+    @if $float == left or $float == right {
+        float: map.get($logicalMap, $float);
+    } @else {
+        // Else use the raw $float value(eg: none, unset, start ...)
+        float: $float;
+    }
+
+    // General value that apply to more than one side
+    inset: $inset;
+
+    // Side specific scroll values to overwrite any general values
+    inset-block-end: $blockEnd;
+    inset-block-start: $blockStart;
+    inset-inline-end: $inlineEnd;
+    inset-inline-start: $inlineStart;
+
+    // --- FALLBACKS --- //
+    // FLOAT FALLBACK
+    @if map.get($logicalMap, $float) {
+        @supports not (float: inline-end) {
+            // If $float is a logical value, map it to its directional value fallback
+            @if $float == inline-start or $float == inline-end {
+                float: map.get($logicalMap, $float);
+            } @else {
+                // Else use the raw $float value (eg: none, unset, left ...)
+                float: $float;
+            }
+        }
+    }
+
+    // INSET FALLBACK
+    // Because the inset property doesn't have a direct fallback equivalent
+    // the $inset values are manually mapped to their directional side
+    @supports not (inset: 1rem) {
+        @if $insetLength == 1 {
+            // Value applied to all sides
+            bottom: $inset;
+            left: $inset;
+            right: $inset;
+            top: $inset;
+        } @else if $insetLength == 2 {
+            // Top/Bottom, Left/Right
+            bottom: list.nth($inset, 1);
+            left: list.nth($inset, 2);
+            right: list.nth($inset, 2);
+            top: list.nth($inset, 1);
+        } @else if $insetLength == 3 {
+            // Top Left/Right Bottom
+            bottom: list.nth($inset, 3);
+            left: list.nth($inset, 2);
+            right: list.nth($inset, 2);
+            top: list.nth($inset, 1);
+        } @else {
+            // Top Right Bottom Left
+            bottom: list.nth($inset, 3);
+            left: list.nth($inset, 4);
+            right: list.nth($inset, 2);
+            top: list.nth($inset, 1);
+        }
+    }
+
+    // SIDE-SPECIFIC FALLBACKS
+    // These will override any values from the inset fallback
+    @supports not (inset-block-end: 1rem) {
+        bottom: $blockEnd;
+        left: $inlineStart;
+        right: $inlineEnd;
+        top: $blockStart;
+    }
+}
