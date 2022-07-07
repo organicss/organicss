@@ -1,0 +1,185 @@
+// All props are optional and default to false
+border(border = false, borderColor = false, borderStyle = false, borderWidth = false, block = false, blockColor = false, blockStyle = false, blockWidth = false, blockEnd = false, blockEndColor = false, blockEndStyle = false, blockEndWidth = false, blockStart = false, blockStartColor = false, blockStartStyle = false, blockStartWidth = false, inline = false, inlineColor = false, inlineStyle = false, inlineWidth = false, inlineEnd = false, inlineEndColor = false, inlineEndStyle = false, inlineEndWidth = false, inlineStart = false, inlineStartColor = false, inlineStartStyle = false, inlineStartWidth = false) {
+    // General value that apply to more than one side
+    if (border) {
+        border border
+    }
+
+    if (borderColor) {
+        border-color borderColor
+    }
+
+    if (borderStyle) {
+        border-style borderStyle
+    }
+
+    if (borderWidth) {
+        border-width borderWidth
+    }
+
+    // Axis specific values to apply to two sides
+    if (block) {
+        border-block block
+    }
+
+    if (blockColor) {
+        border-block-color blockColor
+    }
+
+    if (blockStyle) {
+        border-block-style blockStyle
+    }
+
+    if (blockWidth) {
+        border-block-width blockWidth
+    }
+
+    if (inline) {
+        border-inline inline
+    }
+
+    if (inlineColor) {
+        border-inline-color inlineColor
+    }
+
+    if (inlineStyle) {
+        border-inline-style inlineStyle
+    }
+
+    if (inlineWidth) {
+        border-inline-width inlineWidth
+    }
+
+    // Side specific values to overwrite any general or axis values
+    if (blockEnd) {
+        border-block-end blockEnd
+    }
+
+    if (blockEndColor) {
+        border-block-end-color blockEndColor
+    }
+
+    if (blockEndStyle) {
+        border-block-end-style blockEndStyle
+    }
+
+    if (blockEndWidth) {
+        border-block-end-width blockEndWidth
+    }
+
+    if (blockStart) {
+        border-block-start blockStart
+    }
+
+    if (blockStartColor) {
+        border-block-start-color blockStartColor
+    }
+
+    if (blockStartStyle) {
+        border-block-start-style blockStartStyle
+    }
+
+    if (blockStartWidth) {
+        border-block-start-width blockStartWidth
+    }
+
+    if (inlineEnd) {
+        border-inline-end inlineEnd
+    }
+
+    if (inlineEndColor) {
+        border-inline-end-color inlineEndColor
+    }
+
+    if (inlineEndStyle) {
+        border-inline-end-style inlineEndStyle
+    }
+
+    if (inlineEndWidth) {
+        border-inline-end-width inlineEndWidth
+    }
+
+    if (inlineStart) {
+        border-inline-start inlineStart
+    }
+
+    if (inlineStartColor) {
+        border-inline-start-color inlineStartColor
+    }
+
+    if (inlineStartStyle) {
+        border-inline-start-style inlineStartStyle
+    }
+
+    if (inlineStartWidth) {
+        border-inline-start-width inlineStartWidth
+    }
+
+    @supports not (border-block-end: 1rem solid red) {
+        // The properties block/inline do not accept lists, so they are used as the side specific fallback
+        // However, block/inline-color/style/width do accept lists so .nth is used to map the sides
+        if (blockEnd || block) {
+            border-bottom blockEnd || block
+        }
+
+        if (blockEndColor || (blockColor[1])) {
+            border-bottom-color blockEndColor || (blockColor[1])
+        }
+
+        if (blockEndStyle || (blockStyle[1])) {
+            border-bottom-style blockEndStyle || (blockStyle[1])
+        }
+
+        if (blockEndWidth || (blockWidth[1])) {
+            border-bottom-width blockEndWidth || (blockWidth[1])
+        }
+
+        if (inlineStart || inline) {
+            border-left inlineStart || inline
+        }
+
+        if (inlineStartColor || (inlineColor[0])) {
+            border-left-color inlineStartColor || (inlineColor[0])
+        }
+
+        if (inlineStartStyle || (inlineStyle[0])) {
+            border-left-style inlineStartStyle || (inlineStyle[0])
+        }
+
+        if (inlineStartWidth || (inlineWidth[0])) {
+            border-left-width inlineStartWidth || (inlineWidth[0])
+        }
+
+        if (inlineEnd || inline) {
+            border-right inlineEnd || inline
+        }
+
+        if (inlineEndColor || (inlineColor[1])) {
+            border-right-color inlineEndColor || (inlineColor[1])
+        }
+
+        if (inlineEndStyle || (inlineStyle[1])) {
+            border-right-style inlineEndStyle || (inlineStyle[1])
+        }
+
+        if (inlineEndWidth || (inlineWidth[1])) {
+            border-right-width inlineEndWidth || (inlineWidth[1])
+        }
+
+        if (blockStart || block) {
+            border-top blockStart || block
+        }
+
+        if (blockStartColor || (blockColor[0])) {
+            border-top-color blockStartColor || (blockColor[0])
+        }
+
+        if (blockStartStyle || (blockStyle[0])) {
+            border-top-style blockStartStyle || (blockStyle[0])
+        }
+
+        if (blockStartWidth || (blockWidth[0])) {
+            border-top-width blockStartWidth || (blockWidth[0])
+        }
+    }
+}
