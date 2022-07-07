@@ -67,9 +67,10 @@ Eventually, leaving only the modern CSS required to create the most flexible and
 
 ## Packages
 
-| Package           | Version |
-| ----------------- | ------- |
-| LESS              | --      |
-| SCSS              | --      |
-| Styled Components | --      |
-| Stylus            | --      |
+| Package           | Version      |
+| ----------------- | ------------ |
+| LESS              | Coming soon  |
+| SCSS              | Coming soon  |
+| Styled Components | Coming soon  |
+| Stylus            | Coming soon  |
+| Tailwind          | Coming later |
