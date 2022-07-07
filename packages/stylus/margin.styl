@@ -1,0 +1,104 @@
+// All props are optional and default to false
+margin(
+    block = false,
+    blockEnd = false,
+    blockStart = false,
+    inline = false,
+    inlineEnd = false,
+    inlineStart = false,
+    margin = false,
+    scroll = false,
+    scrollBlock = false,
+    scrollBlockEnd = false,
+    scrollBlockStart = false,
+    scrollInline = false,
+    scrollInlineEnd = false,
+    scrollInlineStart = false,
+) {
+  // Wrap each property in a conditional to avoid empty/invalid styles from being generated
+  // General value that apply to more than one side
+  if margin {
+    margin margin
+  }
+
+   // Axis specific values to apply to two sides
+    if block {
+    margin-block block
+  }
+  if inline {
+    margin-inline inline
+  }
+  
+    // Side specific values to overwrite any general or axis values
+    if blockEnd {
+     margin-block-end blockEnd
+  }
+  if blockStart {
+    margin-block-start blockStart
+  }
+if inlineEnd {
+    margin-inline-end inlineEnd
+  }
+  if inlineStart {
+    margin-inline-start inlineStart
+  }
+  
+    // General scroll values that apply to more than one side
+    if scroll {
+    scroll-margin scroll
+  }
+  
+    // Axis specific values to apply to two sides
+    if scrollBlock {
+    scroll-margin-block scrollBlock
+  }
+   if scrollInline {
+    scroll-margin-inline scrollInline
+  }
+    
+    // Side specific scroll values to overwrite any general or axis values
+    if scrollBlockEnd {
+    scroll-margin-block-end scrollBlockEnd
+  }
+  if scrollBlockStart {
+    scroll-margin-block-start scrollBlockStart
+  }
+  if scrollInlineEnd {
+    scroll-margin-inline-end scrollInlineEnd
+  }
+  if scrollInlineStart {
+    scroll-margin-inline-start scrollInlineStart
+  } 
+
+    @supports not (margin-block-end 1rem) {
+      // Side-specific fallbacks or axis-specific fallbacks
+      if blockStart or block[0] {
+        margin-top blockStart or block[0]
+      }
+      if blockEnd or block[1] {
+        margin-bottom blockEnd or block[1]
+      }
+      if inlineStart or inline[0] {
+        margin-left inlineStart or inline[0]
+      }
+      if inlineEnd or inline[1] {
+        margin-right inlineEnd or inline[1]
+      }
+    }
+  
+  @supports not (scroll-margin-block: 1rem) {
+      // Side-specific fallbacks or axis-specific fallbacks
+      if scrollBlockStart or scrollBlock[0] {
+        scroll-margin-top scrollBlockStart or scrollBlock[0]
+      }
+      if scrollBlockEnd or scrollBlock[1] {
+        scroll-margin-bottom scrollBlockEnd or scrollBlock[1]
+      }
+      if scrollInlineStart or scrollInline[0] {
+        scroll-margin-left scrollInlineStart or scrollInline[0]
+      }
+      if scrollInlineEnd or scrollInline[1] {
+        scroll-margin-right scrollInlineEnd or scrollInline[1]
+      }
+  }
+}
