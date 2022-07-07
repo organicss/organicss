@@ -8,7 +8,7 @@ CSS in many different flavors.
 ## Getting Started
 
 To get started using OrganiCSS, install one of the available packages – [SCSS](./packages/scss/),
-[Styled Components](#packages), [Stylus](#packages) or [Less](#packages).
+[Styled Components](#packages), [Stylus](#packages), [Tailwind](#packages) or [Less](#packages).
 
 ```bash
 npm i @organicss/scss
