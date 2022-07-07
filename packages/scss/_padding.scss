@@ -1,8 +1,6 @@
+@use 'sass:list';
+
 // All props are optional and default to null.
-
-// TODO:
-//  - Refactor axis props to support list values in @supports fallback ($block: 1rem 2rem)
-
 @mixin padding(
     $block: null,
     $blockEnd: null,
@@ -47,17 +45,17 @@
 
     @supports not (padding-block-end: 1rem) {
         // Side-specific fallbacks or axis-specific fallbacks
-        padding-bottom: $blockEnd or $block;
-        padding-left: $inlineStart or $inline;
-        padding-right: $inlineEnd or $inline;
-        padding-top: $blockStart or $block;
+        padding-bottom: $blockEnd or list.nth($block, -1);
+        padding-left: $inlineStart or list.nth($inline, 1);
+        padding-right: $inlineEnd or list.nth($inline, -1);
+        padding-top: $blockStart or list.nth($block, 1);
     }
 
     @supports not (scroll-padding-block: 1rem) {
         // Side-specific fallbacks or axis-specific fallbacks
-        scroll-padding-bottom: $scrollBlockEnd or $scrollBlock;
-        scroll-padding-left: $scrollInlineStart or $scrollInline;
-        scroll-padding-right: $scrollInlineEnd or $scrollInline;
-        scroll-padding-top: $scrollBlockStart or $scrollBlock;
+        scroll-padding-bottom: $scrollBlockEnd or list.nth($scrollBlock, -1);
+        scroll-padding-left: $scrollInlineStart or list.nth($scrollInline, 1);
+        scroll-padding-right: $scrollInlineEnd or list.nth($scrollInline, -1);
+        scroll-padding-top: $scrollBlockStart or list.nth($scrollBlock, 1);
     }
 }
