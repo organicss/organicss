@@ -71,8 +71,7 @@
 
     @supports not (border-block-end: 1rem solid red) {
         // The properties block/inline do not accept lists, so they are used as the side specific fallback
-        // However, block/inline color/style/width _do_ accept lists so .nth is used to map the sides
-
+        // However, block/inline-color/style/width do accept lists so .nth is used to map the sides
         border-bottom: $blockEnd or $block;
         border-bottom-color: $blockEndColor or list.nth($blockColor, -1);
         border-bottom-style: $blockEndStyle or list.nth($blockStyle, -1);
