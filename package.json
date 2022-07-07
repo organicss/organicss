@@ -28,6 +28,8 @@
         "stylus"
     ],
     "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
         "eslint": "^8.19.0",
         "eslint-config-prettier": "^8.5.0",
         "prettier": "^2.7.1",
