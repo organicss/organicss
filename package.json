@@ -37,10 +37,5 @@
         "prettier-eslint": "^15.0.1",
         "prettier-eslint-cli": "^6.0.1"
     },
-    "dependencies": {},
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run format"
-        }
-    }
+    "dependencies": {}
 }
