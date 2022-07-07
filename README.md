@@ -5,6 +5,20 @@
 OrganiCSS is a collection of mixins and functions to support writing progressively-enhanced logical
 CSS in many different flavors.
 
+## Getting Started
+
+To get started using OrganiCSS, install one of the [available packages](#packages).
+
+```bash
+npm i @organicss/scss
+```
+
+```bash
+yarn add @organicss/scss
+```
+
+For specific instructions on the implementation and API, visit the package's documentation.
+
 ## What is Logical CSS?
 
 "The web has firmly shifted into an expectation of responsive, user-friendly sites and products.
