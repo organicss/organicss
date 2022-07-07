@@ -1,0 +1,27 @@
+@use 'sass:list';
+
+// All props are optional and default to null.
+@mixin border-radius(
+    $bottomLeft: null,
+    $bottomRight: null,
+    $radius: null,
+    $topLeft: null,
+    $topRight: null
+) {
+    // General value that apply to more than one side
+    border-radius: $radius;
+
+    // Side specific values to overwrite any general values
+    border-end-end-radius: $bottomRight;
+    border-end-start-radius: $bottomLeft;
+    border-start-end-radius: $topRight;
+    border-start-start-radius: $topLeft;
+
+    @supports not (border-end-end-radius: 1rem) {
+        // Side-specific fallbacks to override any general values
+        border-bottom-left-radius: $bottomLeft;
+        border-bottom-right-radius: $bottomRight;
+        border-top-left-radius: $topLeft;
+        border-top-right-radius: $topRight;
+    }
+}
