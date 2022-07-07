@@ -1,0 +1,95 @@
+@use 'sass:list';
+
+// All props are optional and default to null
+@mixin border(
+    $border: null,
+    $borderColor: null,
+    $borderStyle: null,
+    $borderWidth: null,
+    $block: null,
+    $blockColor: null,
+    $blockStyle: null,
+    $blockWidth: null,
+    $blockEnd: null,
+    $blockEndColor: null,
+    $blockEndStyle: null,
+    $blockEndWidth: null,
+    $blockStart: null,
+    $blockStartColor: null,
+    $blockStartStyle: null,
+    $blockStartWidth: null,
+    $inline: null,
+    $inlineColor: null,
+    $inlineStyle: null,
+    $inlineWidth: null,
+    $inlineEnd: null,
+    $inlineEndColor: null,
+    $inlineEndStyle: null,
+    $inlineEndWidth: null,
+    $inlineStart: null,
+    $inlineStartColor: null,
+    $inlineStartStyle: null,
+    $inlineStartWidth: null
+) {
+    // General value that apply to more than one side
+    border: $border;
+    border-color: $borderColor;
+    border-style: $borderStyle;
+    border-width: $borderWidth;
+
+    // Axis specific values to apply to two sides
+    border-block: $block;
+    border-block-color: $blockColor;
+    border-block-style: $blockStyle;
+    border-block-width: $blockWidth;
+
+    border-inline: $inline;
+    border-inline-color: $inlineColor;
+    border-inline-style: $inlineStyle;
+    border-inline-width: $inlineWidth;
+
+    // Side specific values to overwrite any general or axis values
+    border-block-end: $blockEnd;
+    border-block-end-color: $blockEndColor;
+    border-block-end-style: $blockEndStyle;
+    border-block-end-width: $blockEndWidth;
+
+    border-block-start: $blockStart;
+    border-block-start-color: $blockStartColor;
+    border-block-start-style: $blockStartStyle;
+    border-block-start-width: $blockStartWidth;
+
+    border-inline-end: $inlineEnd;
+    border-inline-end-color: $inlineEndColor;
+    border-inline-end-style: $inlineEndStyle;
+    border-inline-end-width: $inlineEndWidth;
+
+    border-inline-start: $inlineStart;
+    border-inline-start-color: $inlineStartColor;
+    border-inline-start-style: $inlineStartStyle;
+    border-inline-start-width: $inlineStartWidth;
+
+    @supports not (border-block-end: 1rem solid red) {
+        // The properties block/inline do not accept lists, so they are used as the side specific fallback
+        // However, block/inline-color/style/width do accept lists so .nth is used to map the sides
+        border-bottom: $blockEnd or $block;
+        border-bottom-color: $blockEndColor or list.nth($blockColor, -1);
+        border-bottom-style: $blockEndStyle or list.nth($blockStyle, -1);
+        border-bottom-width: $blockEndWidth or list.nth($blockWidth, -1);
+
+        border-left: $inlineStart or $inline;
+        border-left-color: $inlineStartColor or list.nth($inlineColor, 1);
+        border-left-style: $inlineStartStyle or list.nth($inlineStyle, 1);
+        border-left-width: $inlineStartWidth or list.nth($inlineWidth, 1);
+
+        border-right: $inlineEnd or $inline;
+        border-right-color: $inlineEndColor or list.nth($inlineColor, -1);
+        border-right-style: $inlineEndStyle or list.nth($inlineStyle, -1);
+        border-right-width: $inlineEndWidth or list.nth($inlineWidth, -1);
+
+        border-top: $blockStart or $block;
+        border-top-color: $blockStartColor or list.nth($blockColor, 1);
+        border-top-style: $blockStartStyle or list.nth($blockStyle, 1);
+        border-top-width: $blockStartWidth or list.nth($blockWidth, 1);
+    }
+}
