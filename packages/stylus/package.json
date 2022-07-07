@@ -1,11 +1,9 @@
 {
-    "name": "@organicss/scss",
+    "name": "@organicss/stylus",
     "version": "1.0.0",
-    "description": "OrganiCSS - SCSS is a collection of mixins to write progressively-enhanced logical CSS.",
-    "main": "index.scss",
-    "scripts": {
-        "publish": "npm publish"
-    },
+    "description": "OrganiCSS - Stylus is a collection of mixins to write progressively-enhanced logical CSS.",
+    "main": "index.styl",
+    "scripts": {},
     "author": "Daniel Yuschick <daniel.yuschick@gmail.com>",
     "license": "ISC",
     "repository": {
@@ -15,16 +13,17 @@
     "bugs": {
         "url": "https://github.com/organicss/organicss/issues"
     },
-    "homepage": "https://github.com/organicss/organicss/packages/scss",
+    "homepage": "https://github.com/organicss/organicss/packages/stylus",
     "keywords": [
         "css",
         "organicss",
-        "scss",
-        "sass",
+        "stylus",
         "mixins",
         "logical css"
     ],
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "devDependencies": {},
+    "dependencies": {}
 }
