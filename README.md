@@ -7,11 +7,7 @@ CSS in many different flavors.
 
 ## What is Logical CSS?
 
-"The web has firmly shifted into an expectation of responsive, user-friendly sites and products.
-That fluidity has allowed the platform to scale at tremendous rates, and has fully altered entire
-markets and industries. But in the pursuit of supporting more and more devices, what happens if one
-of those devices isn't in English? Or French? Or any other language that flows from top to bottom,
-left to right?
+"The web has firmly shifted into an expectation of responsive, user-friendly sites and products. That fluidity has allowed the platform to scale at tremendous rates, and has fully altered entire markets and industries. But in the pursuit of supporting more and more devices, what happens if one of those devices isn't in English? Or French? Or any other language that flows from top to bottom, left to right?
 
 > Building inclusive products doesn't mean supporting devices, but supporting the people using them.
 
