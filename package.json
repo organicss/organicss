@@ -8,6 +8,7 @@
         "packages/*"
     ],
     "scripts": {
+        "scss": "yarn workspace @organicss/scss",
         "lint": "eslint",
         "lint:fix": "yarn lint -- --fix",
         "prettier": "prettier ./ --check",
