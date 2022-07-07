@@ -53,9 +53,9 @@
 
     @supports not (scroll-padding-block: 1rem) {
         // Side-specific fallbacks or axis-specific fallbacks
-        scroll-padding-bottom: $scrollBlockEnd or $scrollBlock;
-        scroll-padding-left: $scrollInlineStart or $scrollInline;
-        scroll-padding-right: $scrollInlineEnd or $scrollInline;
-        scroll-padding-top: $scrollBlockStart or $scrollBlock;
+        scroll-padding-bottom: $scrollBlockEnd or list.nth($scrollBlock, -1);
+        scroll-padding-left: $scrollInlineStart or list.nth($scrollInline, 1);
+        scroll-padding-right: $scrollInlineEnd or list.nth($scrollInline, -1);
+        scroll-padding-top: $scrollBlockStart or list.nth($scrollBlock, 1);
     }
 }
