@@ -53,9 +53,9 @@
 
     @supports not (scroll-margin-block: 1rem) {
         // Side-specific fallbacks or axis-specific fallbacks
-        scroll-margin-bottom: $scrollBlockEnd or $scrollBlock;
-        scroll-margin-left: $scrollInlineStart or $scrollInline;
-        scroll-margin-right: $scrollInlineEnd or $scrollInline;
-        scroll-margin-top: $scrollBlockStart or $scrollBlock;
+        scroll-margin-bottom: $scrollBlockEnd or list.nth($scrollBlock, -1);
+        scroll-margin-left: $scrollInlineStart or list.nth($scrollInline, 1);
+        scroll-margin-right: $scrollInlineEnd or list.nth($scrollInline, -1);
+        scroll-margin-top: $scrollBlockStart or list.nth($scrollBlock, 1);
     }
 }
