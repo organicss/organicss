@@ -2,7 +2,7 @@
   "name": "organicss",
   "version": "0.0.0",
   "private": true,
-  "description": "OrganiCSS is a collection of mixins for writing logical styles in different CSS pre-processors and libraries.",
+  "description": "OrganiCSS is a collection of mixins for writing logical CSS in different pre-processors and libraries.",
   "main": "index.js",
   "workspaces": [
     "packages/*"
