@@ -20,16 +20,6 @@ yarn add @organicss/scss
 
 For specific instructions on the implementation and API, visit the package's documentation.
 
-## Packages
-
-| Package                  | Version                                                                                                      |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| LESS                     | Coming soon                                                                                                  |
-| [SCSS](./packages/scss/) | [![npm version](https://badge.fury.io/js/@organicss%2Fscss.svg)](https://badge.fury.io/js/@organicss%2Fscss) |
-| Styled Components        | Coming soon                                                                                                  |
-| Stylus                   | Coming soon                                                                                                  |
-| Tailwind                 | Coming later                                                                                                 |
-
 ## Why OrganiCSS?
 
 > As of version 1.0.0, OrganiCSS supports all logical properties documented on
@@ -89,3 +79,13 @@ ensure our content is aligned with its expected starting point.
 And that's exactly what CSS Logical Properties do."
 
 [Read more about Logical CSS](https://www.danyuschick.com/articles/css-logical-properties-are-the-future-of-the-web-and-i18n/)
+
+## Packages
+
+| Package                  | Version                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| LESS                     | Coming soon                                                                                                  |
+| [SCSS](./packages/scss/) | [![npm version](https://badge.fury.io/js/@organicss%2Fscss.svg)](https://badge.fury.io/js/@organicss%2Fscss) |
+| Styled Components        | Coming soon                                                                                                  |
+| Stylus                   | Coming soon                                                                                                  |
+| Tailwind                 | Coming later                                                                                                 |
