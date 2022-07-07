@@ -9,9 +9,9 @@
     ],
     "scripts": {
         "lint": "eslint",
-        "lint:fix": "npm run lint -- --fix",
+        "lint:fix": "yarn lint -- --fix",
         "prettier": "prettier ./ --check",
-        "prettier:fix": "npm run prettier -- --write",
+        "prettier:fix": "yarn prettier -- --write",
         "format": "yarn prettier:fix && yarn lint:fix"
     },
     "author": "Daniel Yuschick <daniel.yuschick@gmail.com>",
