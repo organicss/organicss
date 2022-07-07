@@ -1,8 +1,6 @@
+@use 'sass:list';
+
 // All props are optional and default to null.
-
-// TODO:
-//  - Refactor axis props to support list values in @supports fallback ($block: 1rem 2rem)
-
 @mixin margin(
     $block: null,
     $blockEnd: null,
@@ -47,10 +45,10 @@
 
     @supports not (margin-block-end: 1rem) {
         // Side-specific fallbacks or axis-specific fallbacks
-        margin-bottom: $blockEnd or $block;
-        margin-left: $inlineStart or $inline;
-        margin-right: $inlineEnd or $inline;
-        margin-top: $blockStart or $block;
+        margin-bottom: $blockEnd or list.nth($block, -1);
+        margin-left: $inlineStart or list.nth($inline, 1);
+        margin-right: $inlineEnd or list.nth($inline, -1);
+        margin-top: $blockStart or list.nth($block, 1);
     }
 
     @supports not (scroll-margin-block: 1rem) {
