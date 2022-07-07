@@ -22,9 +22,6 @@ For specific instructions on the implementation and API, visit the package's doc
 
 ## Why OrganiCSS?
 
-> As of version 1.0.0, OrganiCSS supports all logical properties documented on
-> [MDN: CSS Logical Properties and Values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties).
-
 Using OrganiCSS allows writing logical CSS now with the appropriate fallbacks when necessary. Let's
 look at an example in SCSS.
 

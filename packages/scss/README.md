@@ -9,6 +9,9 @@ The OrganiCSS SCSS package provides a collection of
 progressively-enhanced logical CSS with. The mixins will generate logical CSS properties first, with
 fallbacks to catch when not supported.
 
+> As of version 1.0.0, OrganiCSS supports all logical properties documented on
+> [MDN: CSS Logical Properties and Values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties).
+
 ## :robot: Installation
 
 To use OrganiCSS SCSS, first install the package into a SCSS project.
