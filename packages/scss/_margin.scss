@@ -1,6 +1,6 @@
 @use 'sass:list';
 
-// All props are optional and default to null.
+// All props are optional and default to null
 @mixin margin(
     $block: null,
     $blockEnd: null,
