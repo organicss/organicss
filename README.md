@@ -67,10 +67,10 @@ Eventually, leaving only the modern CSS required to create the most flexible and
 
 ## Packages
 
-| Package           | Version      |
-| ----------------- | ------------ |
-| LESS              | Coming soon  |
-| SCSS              | Coming soon  |
-| Styled Components | Coming soon  |
-| Stylus            | Coming soon  |
-| Tailwind          | Coming later |
+| Package                  | Version                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| LESS                     | Coming soon                                                                                                  |
+| [SCSS](./packages/scss/) | [![npm version](https://badge.fury.io/js/@organicss%2Fscss.svg)](https://badge.fury.io/js/@organicss%2Fscss) |
+| Styled Components        | Coming soon                                                                                                  |
+| Stylus                   | Coming soon                                                                                                  |
+| Tailwind                 | Coming later                                                                                                 |
