@@ -1,0 +1,102 @@
+// All props are optional and default to false
+padding(block = false, blockEnd = false, blockStart = false, inline = false, inlineEnd = false, inlineStart = false, padding = false, scroll = false, scrollBlock = false, scrollBlockEnd = false, scrollBlockStart = false, scrollInline = false, scrollInlineEnd = false, scrollInlineStart = false) {
+  // Wrap each property in a conditional to avoid empty/invalid styles from being generated
+  // General value that apply to more than one side
+  if padding {
+    padding padding
+  }
+
+  if block {
+    padding-block block
+  }
+
+  if inline {
+    padding-inline inline
+  }
+
+  // Side specific values to overwrite any general or axis values
+  if blockEnd {
+    padding-block-end blockEnd
+  }
+
+  if blockStart {
+    padding-block-start blockStart
+  }
+
+  if inlineEnd {
+    padding-inline-end inlineEnd
+  }
+
+  if inlineStart {
+    padding-inline-start inlineStart
+  }
+
+  // General scroll values that apply to more than one side
+  if scroll {
+    scroll-padding scroll
+  }
+
+  // Axis specific values to apply to two sides
+  if scrollBlock {
+    scroll-padding-block scrollBlock
+  }
+
+  if scrollInline {
+    scroll-padding-inline scrollInline
+  }
+
+  // Side specific scroll values to overwrite any general or axis values
+  if scrollBlockEnd {
+    scroll-padding-block-end scrollBlockEnd
+  }
+
+  if scrollBlockStart {
+    scroll-padding-block-start scrollBlockStart
+  }
+
+  if scrollInlineEnd {
+    scroll-padding-inline-end scrollInlineEnd
+  }
+
+  if scrollInlineStart {
+    scroll-padding-inline-start scrollInlineStart
+  }
+
+  @supports not (padding-block-end 1rem) {
+    // Side-specific fallbacks or axis-specific fallbacks
+    if (blockStart || (block[0])) {
+      padding-top: blockStart || (block[0])
+    }
+
+    if (blockEnd || (block[1])) {
+      padding-bottom: blockEnd || (block[1])
+    }
+
+    if (inlineStart || (inline[0])) {
+      padding-left: inlineStart || (inline[0])
+    }
+
+    if (inlineEnd || (inline[1])) {
+      padding-right: inlineEnd || (inline[1])
+    }
+  }
+
+  @supports not (scroll-padding-block 1rem) {
+    // Side-specific fallbacks or axis-specific fallbacks
+    if (scrollBlockStart || (scrollBlock[0])) {
+      scroll-padding-top: scrollBlockStart || (scrollBlock[0])
+    }
+
+    if (scrollBlockEnd || (scrollBlock[1])) {
+      scroll-padding-bottom: scrollBlockEnd || (scrollBlock[1])
+    }
+
+    if (scrollInlineStart || (scrollInline[0])) {
+      scroll-padding-left: scrollInlineStart || (scrollInline[0])
+    }
+
+    if (scrollInlineEnd || (scrollInline[1])) {
+      scroll-padding-right: scrollInlineEnd || (scrollInline[1])
+    }
+  }
+}
