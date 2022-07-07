@@ -1,0 +1,30 @@
+{
+    "name": "@organicss/scss",
+    "version": "0.0.1",
+    "description": "OrganiCSS - SCSS is a collection of mixins to write progressively-enhanced logical CSS.",
+    "main": "index.scss",
+    "scripts": {},
+    "author": "Daniel Yuschick <daniel.yuschick@gmail.com>",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/organicss/scss.git"
+    },
+    "bugs": {
+        "url": "https://github.com/organicss/scss/issues"
+    },
+    "homepage": "https://github.com/organicss/scss",
+    "keywords": [
+        "css",
+        "organicss",
+        "scss",
+        "sass",
+        "mixins",
+        "logical css"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {},
+    "dependencies": {}
+}
