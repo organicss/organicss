@@ -1,0 +1,178 @@
+@import './utils/maps';
+
+// All props are optional and default to null
+.layout(
+    @blockSize: null;
+    @captionSide: null;
+    @clear: null;
+    @inlineSize: null;
+    @maxBlockSize: null;
+    @maxInlineSize: null;
+    @minBlockSize: null;
+    @minInlineSize: null;
+    @overflow: null;
+    @overflowBlock: null;
+    @overflowInline: null;
+    @overscrollBehavior: null;
+    @overscrollBehaviorBlock: null;
+    @overscrollBehaviorInline: null;
+    @resize: null;
+    @textAlign: null;
+) {
+    & when not (@captionSide = null) {
+        // If @captionSide is a directional value, map it to use its logical equivalent
+        // Else use the raw @captionSide value
+        caption-side: if(
+            @captionSide = top or @captionSide = bottom,
+            @logicalMap[ @@captionSide],
+            @captionSide
+        );
+    }
+
+    & when not (@clear = null) {
+        // If @clear is a directional value, map it to use its logical equivalent
+        // Else use the raw @clear value
+        clear: if(@clear = left or @clear = right, @logicalMap[ @@clear], @clear);
+    }
+
+    & when not (@resize = null) {
+        // If @resize is a directional value, map it to use its logical equivalent
+        // Else use the raw @resize value
+        resize: if(@resize = horizontal or @resize = vertical, @logicalMap[ @@resize], @resize);
+    }
+
+    & when not (@textAlign = null) {
+        // If @textAlign is a directional value, map it to use its logical equivalent
+        // Else use the raw @textAlign value
+        text-align: if(
+            @textAlign = left or @textAlign = right,
+            @alignmentMap[ @@textAlign],
+            @textAlign
+        );
+    }
+
+    & when not (@blockSize = null) {
+        block-size: @blockSize;
+    }
+    & when not (@maxBlockSize = null) {
+        max-block-size: @maxBlockSize;
+    }
+    & when not (@minBlockSize = null) {
+        min-block-size: @minBlockSize;
+    }
+    & when not (@inlineSize = null) {
+        inline-size: @inlineSize;
+    }
+    & when not (@maxInlineSize = null) {
+        max-inline-size: @maxInlineSize;
+    }
+    & when not (@minInlineSize = null) {
+        min-inline-size: @minInlineSize;
+    }
+    & when not (@overflow = null) {
+        overflow: @overflow;
+    }
+    & when not (@overflowBlock = null) {
+        overflow-block: @overflowBlock;
+    }
+    & when not (@overflowInline = null) {
+        overflow-inline: @overflowInline;
+    }
+    & when not (@overscrollBehavior = null) {
+        overscroll-behavior: @overscrollBehavior;
+    }
+    & when not (@overscrollBehaviorBlock = null) {
+        overscroll-behavior-block: @overscrollBehaviorBlock;
+    }
+    & when not (@overscrollBehaviorInline = null) {
+        overscroll-behavior-inline: @overscrollBehaviorInline;
+    }
+
+    @supports not (caption-side: block-start) {
+        // If $captionSide is a logical value, map it to its directional value fallback
+        // Else use the raw $captionSide value
+        & when not (@captionSide = null) {
+            caption-side: if(
+                @captionSide = block-start or @captionSide = block-end,
+                @logicalMap[ @@captionSide],
+                @captionSide
+            );
+        }
+    }
+
+    @supports not (clear: inline-end) {
+        // Not all @clear values need a fallback (eg: both)
+        // If @clear is a logical value, map it to the directional value. Else use the directional value
+        &
+            when
+            ((@clear = inline-end) or (@clear = inline-start) or (@clear = left) or (@clear = right)) {
+            clear: if(@clear = inline-start or @clear = inline-end, @logicalMap[ @@clear], @clear);
+        }
+    }
+
+    @supports not (resize: inline) {
+        // Not all @resize values need a fallback (eg: both)
+        // If @resize is a logical value, map it to the directional value. Else use the directional value
+        &
+            when
+            ((@resize = inline) or (@resize = block) or (@resize = horizontal) or (@resize = vertical)) {
+            resize: if(@resize = inline or @resize = block, @logicalMap[ @@resize], @resize);
+        }
+    }
+
+    @supports not (text-align: end) {
+        // Not all @textAlign values need a fallback (eg: center, justify)
+        // If @textAlign is a logical value, map it to the directional value. Else use the directional value
+        &
+            when
+            ((@textAlign = start) or (@textAlign = end) or (@textAlign = left) or (@textAlign = right)) {
+            text-align: if(
+                @textAlign = start or @textAlign = end,
+                @alignmentMap[ @@textAlign],
+                @textAlign
+            );
+        }
+    }
+
+    @supports not (block-size: 1rem) {
+        & when not (@blockSize = null) {
+            height: @blockSize;
+        }
+        & when not (@maxBlockSize = null) {
+            max-height: @maxBlockSize;
+        }
+        & when not (@minBlockSize = null) {
+            min-height: @minBlockSize;
+        }
+    }
+
+    @supports not (inline-size: 1rem) {
+        & when not (@inlineSize = null) {
+            width: @inlineSize;
+        }
+        & when not (@maxInlineSize = null) {
+            max-width: @maxInlineSize;
+        }
+        & when not (@minInlineSize = null) {
+            min-width: @minInlineSize;
+        }
+    }
+
+    @supports not (overflow-block: auto) {
+        & when not (@overflowBlock = null) {
+            overflow-y: @overflowBlock;
+        }
+        & when not (@overflowInline = null) {
+            overflow-x: @overflowInline;
+        }
+    }
+
+    @supports not (overscroll-behavior-block: auto) {
+        & when not (@overscrollBehaviorBlock = null) {
+            overscroll-behavior-y: @overscrollBehaviorBlock;
+        }
+        & when not (@overscrollBehaviorInline = null) {
+            overscroll-behavior-x: @overscrollBehaviorInline;
+        }
+    }
+}
