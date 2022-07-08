@@ -5,9 +5,11 @@
 
 // All props are optional and default to null
 @mixin position(
+    $block: null,
     $blockEnd: null,
     $blockStart: null,
     $float: null,
+    $inline: null,
     $inlineEnd: null,
     $inlineStart: null,
     $inset: null
@@ -26,7 +28,11 @@
     // General value that apply to more than one side
     inset: $inset;
 
-    // Side specific scroll values to overwrite any general values
+    // Axis specific values to apply to two sides
+    inset-block: $block;
+    inset-inline: $inline;
+
+    // Side specific scroll values to overwrite any general or axis values
     inset-block-end: $blockEnd;
     inset-block-start: $blockStart;
     inset-inline-end: $inlineEnd;
@@ -80,9 +86,9 @@
     // SIDE-SPECIFIC FALLBACKS
     // These will override any values from the inset fallback
     @supports not (inset-block-end: 1rem) {
-        bottom: $blockEnd;
-        left: $inlineStart;
-        right: $inlineEnd;
-        top: $blockStart;
+        bottom: $blockEnd or list.nth($block, -1);
+        left: $inlineStart or list.nth($inline, 1);
+        right: $inlineEnd or list.nth($inline, -1);
+        top: $blockStart or list.nth($block, 1);
     }
 }
