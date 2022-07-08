@@ -64,39 +64,39 @@ margin(block = false, blockEnd = false, blockStart = false, inline = false, inli
 
   @supports not (margin-block-end 1rem) {
     // Side-specific fallbacks or axis-specific fallbacks
-    if (blockStart || (block[0])) {
+    if (blockStart || block) {
       margin-top: blockStart || (block[0])
     }
 
-    if (blockEnd || (block[1])) {
-      margin-bottom: blockEnd || (block[1])
+    if (blockEnd || block) {
+      margin-bottom: blockEnd || (block[1]) || block
     }
 
-    if (inlineStart || (inline[0])) {
+    if (inlineStart || inline) {
       margin-left: inlineStart || (inline[0])
     }
 
-    if (inlineEnd || (inline[1])) {
-      margin-right: inlineEnd || (inline[1])
+    if (inlineEnd || inline) {
+      margin-right: inlineEnd || (inline[1]) || inline
     }
   }
 
   @supports not (scroll-margin-block 1rem) {
     // Side-specific fallbacks or axis-specific fallbacks
-    if (scrollBlockStart || (scrollBlock[0])) {
+    if (scrollBlockStart || scrollBlock) {
       scroll-margin-top: scrollBlockStart || (scrollBlock[0])
     }
 
-    if (scrollBlockEnd || (scrollBlock[1])) {
-      scroll-margin-bottom: scrollBlockEnd || (scrollBlock[1])
+    if (scrollBlockEnd || scrollBlock) {
+      scroll-margin-bottom: scrollBlockEnd || (scrollBlock[1]) || scrollBlock
     }
 
-    if (scrollInlineStart || (scrollInline[0])) {
+    if (scrollInlineStart || scrollInline) {
       scroll-margin-left: scrollInlineStart || (scrollInline[0])
     }
 
-    if (scrollInlineEnd || (scrollInline[1])) {
-      scroll-margin-right: scrollInlineEnd || (scrollInline[1])
+    if (scrollInlineEnd || scrollInline) {
+      scroll-margin-right: scrollInlineEnd || (scrollInline[1]) || scrollInline
     }
   }
 }

@@ -123,31 +123,31 @@ border(border = false, borderColor = false, borderStyle = false, borderWidth = f
             border-bottom: blockEnd || block
         }
 
-        if (blockEndColor || (blockColor[1])) {
-            border-bottom-color: blockEndColor || (blockColor[1])
+        if (blockEndColor || blockColor) {
+            border-bottom-color: blockEndColor || (blockColor[1]) || blockColor
         }
 
-        if (blockEndStyle || (blockStyle[1])) {
-            border-bottom-style: blockEndStyle || (blockStyle[1])
+        if (blockEndStyle || blockStyle) {
+            border-bottom-style: blockEndStyle || (blockStyle[1]) || blockStyle
         }
 
-        if (blockEndWidth || (blockWidth[1])) {
-            border-bottom-width: blockEndWidth || (blockWidth[1])
+        if (blockEndWidth || blockWidth) {
+            border-bottom-width: blockEndWidth || (blockWidth[1]) || blockWidth
         }
 
         if (inlineStart || inline) {
             border-left: inlineStart || inline
         }
 
-        if (inlineStartColor || (inlineColor[0])) {
+        if (inlineStartColor || inlineColor) {
             border-left-color: inlineStartColor || (inlineColor[0])
         }
 
-        if (inlineStartStyle || (inlineStyle[0])) {
+        if (inlineStartStyle || inlineStyle) {
             border-left-style: inlineStartStyle || (inlineStyle[0])
         }
 
-        if (inlineStartWidth || (inlineWidth[0])) {
+        if (inlineStartWidth || inlineWidth) {
             border-left-width: inlineStartWidth || (inlineWidth[0])
         }
 
@@ -155,31 +155,31 @@ border(border = false, borderColor = false, borderStyle = false, borderWidth = f
             border-right: inlineEnd || inline
         }
 
-        if (inlineEndColor || (inlineColor[1])) {
-            border-right-color: inlineEndColor || (inlineColor[1])
+        if (inlineEndColor || inlineColor) {
+            border-right-color: inlineEndColor || (inlineColor[1]) || inlineColor
         }
 
-        if (inlineEndStyle || (inlineStyle[1])) {
-            border-right-style: inlineEndStyle || (inlineStyle[1])
+        if (inlineEndStyle || inlineStyle) {
+            border-right-style: inlineEndStyle || (inlineStyle[1]) || inlineStyle
         }
 
-        if (inlineEndWidth || (inlineWidth[1])) {
-            border-right-width: inlineEndWidth || (inlineWidth[1])
+        if (inlineEndWidth || inlineWidth) {
+            border-right-width: inlineEndWidth || (inlineWidth[1]) || inlineWidth
         }
 
         if (blockStart || block) {
             border-top: blockStart || block
         }
 
-        if (blockStartColor || (blockColor[0])) {
+        if (blockStartColor || blockColor) {
             border-top-color: blockStartColor || (blockColor[0])
         }
 
-        if (blockStartStyle || (blockStyle[0])) {
+        if (blockStartStyle || blockStyle) {
             border-top-style: blockStartStyle || (blockStyle[0])
         }
 
-        if (blockStartWidth || (blockWidth[0])) {
+        if (blockStartWidth || blockWidth) {
             border-top-width: blockStartWidth || (blockWidth[0])
         }
     }
