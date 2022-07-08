@@ -3,10 +3,10 @@ import { MarginProps, FormattedMarginProps } from './Margin.types';
 
 function Margin(props: MarginProps): FlattenSimpleInterpolation {
     // Split the axis properties to map specific values for fallbacks
-    const blockArr = props.block?.toString().split(' ');
-    const inlineArr = props.inline?.toString().split(' ');
-    const scrollBlockArr = props.scrollBlock?.toString().split(' ');
-    const scrollInlineArr = props.scrollInline?.toString().split(' ');
+    const blockArr = props.block?.toString().split(' ') || [];
+    const inlineArr = props.inline?.toString().split(' ') || [];
+    const scrollBlockArr = props.scrollBlock?.toString().split(' ') || [];
+    const scrollInlineArr = props.scrollInline?.toString().split(' ') || [];
 
     /*
       Map and prioritize possible values.
