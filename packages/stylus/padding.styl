@@ -2,63 +2,63 @@
 padding(block = false, blockEnd = false, blockStart = false, inline = false, inlineEnd = false, inlineStart = false, padding = false, scroll = false, scrollBlock = false, scrollBlockEnd = false, scrollBlockStart = false, scrollInline = false, scrollInlineEnd = false, scrollInlineStart = false) {
   // Wrap each property in a conditional to avoid empty/invalid styles from being generated
   // General value that apply to more than one side
-  if padding {
+  if (padding) {
     padding padding
   }
 
-  if block {
+  if (block) {
     padding-block block
   }
 
-  if inline {
+  if (inline) {
     padding-inline inline
   }
 
   // Side specific values to overwrite any general or axis values
-  if blockEnd {
+  if (blockEnd) {
     padding-block-end blockEnd
   }
 
-  if blockStart {
+  if (blockStart) {
     padding-block-start blockStart
   }
 
-  if inlineEnd {
+  if (inlineEnd) {
     padding-inline-end inlineEnd
   }
 
-  if inlineStart {
+  if (inlineStart) {
     padding-inline-start inlineStart
   }
 
   // General scroll values that apply to more than one side
-  if scroll {
+  if (scroll) {
     scroll-padding scroll
   }
 
   // Axis specific values to apply to two sides
-  if scrollBlock {
+  if (scrollBlock) {
     scroll-padding-block scrollBlock
   }
 
-  if scrollInline {
+  if (scrollInline) {
     scroll-padding-inline scrollInline
   }
 
   // Side specific scroll values to overwrite any general or axis values
-  if scrollBlockEnd {
+  if (scrollBlockEnd) {
     scroll-padding-block-end scrollBlockEnd
   }
 
-  if scrollBlockStart {
+  if (scrollBlockStart) {
     scroll-padding-block-start scrollBlockStart
   }
 
-  if scrollInlineEnd {
+  if (scrollInlineEnd) {
     scroll-padding-inline-end scrollInlineEnd
   }
 
-  if scrollInlineStart {
+  if (scrollInlineStart) {
     scroll-padding-inline-start scrollInlineStart
   }
 
