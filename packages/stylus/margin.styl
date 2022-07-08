@@ -2,63 +2,63 @@
 margin(block = false, blockEnd = false, blockStart = false, inline = false, inlineEnd = false, inlineStart = false, margin = false, scroll = false, scrollBlock = false, scrollBlockEnd = false, scrollBlockStart = false, scrollInline = false, scrollInlineEnd = false, scrollInlineStart = false) {
   // Wrap each property in a conditional to avoid empty/invalid styles from being generated
   // General value that apply to more than one side
-  if margin {
+  if (margin) {
     margin margin
   }
 
-  if block {
+  if (block) {
     margin-block block
   }
 
-  if inline {
+  if (inline) {
     margin-inline inline
   }
 
   // Side specific values to overwrite any general or axis values
-  if blockEnd {
+  if (blockEnd) {
     margin-block-end blockEnd
   }
 
-  if blockStart {
+  if (blockStart) {
     margin-block-start blockStart
   }
 
-  if inlineEnd {
+  if (inlineEnd) {
     margin-inline-end inlineEnd
   }
 
-  if inlineStart {
+  if (inlineStart) {
     margin-inline-start inlineStart
   }
 
   // General scroll values that apply to more than one side
-  if scroll {
+  if (scroll) {
     scroll-margin scroll
   }
 
   // Axis specific values to apply to two sides
-  if scrollBlock {
+  if (scrollBlock) {
     scroll-margin-block scrollBlock
   }
 
-  if scrollInline {
+  if (scrollInline) {
     scroll-margin-inline scrollInline
   }
 
   // Side specific scroll values to overwrite any general or axis values
-  if scrollBlockEnd {
+  if (scrollBlockEnd) {
     scroll-margin-block-end scrollBlockEnd
   }
 
-  if scrollBlockStart {
+  if (scrollBlockStart) {
     scroll-margin-block-start scrollBlockStart
   }
 
-  if scrollInlineEnd {
+  if (scrollInlineEnd) {
     scroll-margin-inline-end scrollInlineEnd
   }
 
-  if scrollInlineStart {
+  if (scrollInlineStart) {
     scroll-margin-inline-start scrollInlineStart
   }
 

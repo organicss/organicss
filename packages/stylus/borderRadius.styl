@@ -1,42 +1,42 @@
 // All props are optional and default to false
 border-radius(bottomLeft = false, bottomRight = false, radius = false, topLeft = false, topRight = false) {
     // General value that apply to more than one side
-    if radius {
+    if (radius) {
         border-radius radius
     }
 
     // Side specific values to overwrite any general values
-    if bottomRight {
+    if (bottomRight) {
         border-end-end-radius bottomRight
     }
 
-    if bottomLeft {
+    if (bottomLeft) {
         border-end-start-radius bottomLeft
     }
 
-    if topRight {
+    if (topRight) {
         border-start-end-radius topRight
     }
 
-    if topLeft {
+    if (topLeft) {
         border-start-start-radius topLeft
     }
 
     @supports not (border-end-end-radius 1rem) {
         // Side-specific fallbacks to override any general values
-        if bottomRight {
+        if (bottomRight) {
             border-bottom-right-radius bottomRight
         }
 
-        if bottomLeft {
+        if (bottomLeft) {
             border-bottom-left-radius bottomLeft
         }
 
-        if topRight {
+        if (topRight) {
             border-top-right-radius topRight
         }
 
-        if topLeft {
+        if (topLeft) {
             border-top-left-radius topLeft
         }
     }
