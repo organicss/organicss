@@ -10,6 +10,7 @@
     ],
     "scripts": {
         "less": "yarn workspace @organicss/less",
+        "styled-components": "yarn workspace @organicss/styled-components",
         "scss": "yarn workspace @organicss/scss",
         "stylus": "yarn workspace @organicss/stylus",
         "lint": "eslint",

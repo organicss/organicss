@@ -1,0 +1,49 @@
+{
+    "name": "@organicss/styled-components",
+    "version": "1.0.0",
+    "description": "OrganiCSS - Styled Components is a collection of mixins to write progressively-enhanced logical CSS.",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "node esbuild.config.js && tsc"
+    },
+    "author": "Daniel Yuschick <daniel.yuschick@gmail.com>",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/organicss/organicss.git"
+    },
+    "bugs": {
+        "url": "https://github.com/organicss/organicss/issues"
+    },
+    "homepage": "https://github.com/organicss/organicss/packages/styled-components",
+    "keywords": [
+        "css",
+        "organicss",
+        "styled components",
+        "mixins",
+        "logical css"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "@types/styled-components": "^5.1.25",
+        "@typescript-eslint/eslint-plugin": "^5.30.0",
+        "@typescript-eslint/parser": "^5.30.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-n": "^15.2.3",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint": "^8.18.0",
+        "styled-components": "^5.3.5",
+        "typescript": "^4.7.4"
+    },
+    "dependencies": {
+        "esbuild": "^0.14.48"
+    }
+}
