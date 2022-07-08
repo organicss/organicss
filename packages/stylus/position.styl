@@ -87,7 +87,7 @@ position(block = false, blockEnd = false, blockStart = false, float = false, inl
     // These will override any values from the inset fallback
     @supports not (inset-block-end 1rem) {
         if (blockEnd || block) {
-            bottom: blockEnd || (block[1] || (block[0]))
+            bottom: blockEnd || (block[1] || block)
         }
 
         if (inlineStart || inline) {
@@ -95,7 +95,7 @@ position(block = false, blockEnd = false, blockStart = false, float = false, inl
         }
 
         if (inlineEnd || inline) {
-            right: inlineEnd || (inline[1]) || (inline[0])
+            right: inlineEnd || (inline[1] || inline)
         }
 
         if (blockStart || block) {
