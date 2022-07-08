@@ -1,5 +1,6 @@
 // All props are optional and default to false
 border-radius(bottomLeft = false, bottomRight = false, radius = false, topLeft = false, topRight = false) {
+    // Wrap each property in a conditional to avoid empty/invalid styles from being generated
     // General value that apply to more than one side
     if (radius) {
         border-radius radius

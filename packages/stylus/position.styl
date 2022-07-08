@@ -2,6 +2,7 @@
 
 // All props are optional and default to false
 position(blockEnd = false, blockStart = false, float = false, inlineEnd = false, inlineStart = false, inset = false) {
+    // Wrap each property in a conditional to avoid empty/invalid styles from being generated
     // Get possible inset list length to manually map to @supports fallbacks
     insetLength = length(inset)
 
