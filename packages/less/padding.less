@@ -1,0 +1,127 @@
+// All props are optional and default to null
+.padding(
+  @block: null;
+  @blockEnd: null;
+  @blockStart: null;
+  @inline: null;
+  @inlineEnd: null;
+  @inlineStart: null;
+  @padding: null;
+  @scroll: null;
+  @scrollBlock: null;
+  @scrollBlockEnd: null;
+  @scrollBlockStart: null;
+  @scrollInline: null;
+  @scrollInlineEnd: null;
+  @scrollInlineStart: null;
+) {
+    // General value that apply to more than one side
+    & when not (@padding = null) {
+        padding: @padding;
+    }
+
+    // Axis specific values to apply to two sides
+    & when not (@block = null) {
+        padding-block: @block;
+    }
+    & when not (@inline = null) {
+        padding-inline: @inline;
+    }
+
+    // Side specific values to overwrite any general or axis values
+    & when not (@blockEnd = null) {
+        padding-block-end: @blockEnd;
+    }
+    & when not (@blockStart = null) {
+        padding-block-start: @blockStart;
+    }
+    & when not (@inlineEnd = null) {
+        padding-inline-end: @inlineEnd;
+    }
+    & when not (@inlineStart = null) {
+        padding-inline-start: @inlineStart;
+    }
+
+    // General scroll values that apply to more than one side
+    & when not (@scroll = null) {
+        scroll-padding: @scroll;
+    }
+
+    // Axis specific values to apply to two sides
+    & when not (@scrollBlock = null) {
+        scroll-padding-block: @scrollBlock;
+    }
+    & when not (@scrollInline = null) {
+        scroll-padding-inline: @scrollInline;
+    }
+
+    // Side specific scroll values to overwrite any general or axis values
+    & when not (@scrollBlockEnd = null) {
+        scroll-padding-block-end: @scrollBlockEnd;
+    }
+    & when not (@scrollBlockStart = null) {
+        scroll-padding-block-start: @scrollBlockStart;
+    }
+    & when not (@scrollInlineEnd = null) {
+        scroll-padding-inline-end: @scrollInlineEnd;
+    }
+    & when not (@scrollInlineStart = null) {
+        scroll-padding-inline-start: @scrollInlineStart;
+    }
+
+    @supports not (padding-block-end: 1rem) {
+        // Side-specific fallbacks or axis-specific fallbacks
+        & when (not (@blockEnd = null) or not (@block = null)) {
+            padding-bottom: if(
+                not (@blockEnd = null),
+                @blockEnd,
+                if(length(@block) = 2, extract(@block, 2), extract(@block, 1))
+            );
+        }
+        & when (not (@blockStart = null) or not (@block = null)) {
+            padding-top: if(not (@blockStart = null), @blockStart, extract(@block, 1));
+        }
+        & when (not (@inlineEnd = null) or not (@inline = null)) {
+            padding-right: if(
+                not (@inlineEnd = null),
+                @inlineEnd,
+                if(length(@inline) = 2, extract(@inline, 2), extract(@inline, 1))
+            );
+        }
+        & when (not (@inlineStart = null) or not (@inline = null)) {
+            padding-left: if(not (@inlineStart = null), @inlineStart, extract(@inline, 1));
+        }
+    }
+
+    @supports not (padding-block-end: 1rem) {
+        // Side-specific fallbacks or axis-specific fallbacks
+        & when (not (@scrollBlockEnd = null) or not (@scrollBlock = null)) {
+            scroll-padding-bottom: if(
+                not (@scrollBlockEnd = null),
+                @scrollBlockEnd,
+                if(length(@scrollBlock) = 2, extract(@scrollBlock, 2), extract(@scrollBlock, 1))
+            );
+        }
+        & when (not (@scrollBlockStart = null) or not (@scrollBlock = null)) {
+            scroll-padding-top: if(
+                not (@scrollBlockStart = null),
+                @scrollBlockStart,
+                extract(@scrollBlock, 1)
+            );
+        }
+        & when (not (@scrollInlineEnd = null) or not (@scrollInline = null)) {
+            scroll-padding-right: if(
+                not (@scrollInlineEnd = null),
+                @scrollInlineEnd,
+                if(length(@scrollInline) = 2, extract(@scrollInline, 2), extract(@scrollInline, 1))
+            );
+        }
+        & when (not (@scrollInlineStart = null) or not (@scrollInline = null)) {
+            scroll-padding-left: if(
+                not (@scrollInlineStart = null),
+                @scrollInlineStart,
+                extract(@scrollInline, 1)
+            );
+        }
+    }
+}
