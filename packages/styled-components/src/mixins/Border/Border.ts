@@ -3,12 +3,12 @@ import { BorderProps, FormattedBorderProps } from './Border.types';
 
 function Border(props: BorderProps): FlattenSimpleInterpolation {
     /* Split the axis properties to map specific values for fallbacks */
-    const blockColorArr = props.blockColor?.split(' ');
-    const blockStyleArr = props.blockStyle?.split(' ');
-    const blockWidthArr = props.blockWidth?.toString().split(' ');
-    const inlineColorArr = props.inlineColor?.split(' ');
-    const inlineStyleArr = props.inlineStyle?.split(' ');
-    const inlineWidthArr = props.inlineWidth?.toString().split(' ');
+    const blockColorArr = props.blockColor?.split(' ') || [];
+    const blockStyleArr = props.blockStyle?.split(' ') || [];
+    const blockWidthArr = props.blockWidth?.toString().split(' ') || [];
+    const inlineColorArr = props.inlineColor?.split(' ') || [];
+    const inlineStyleArr = props.inlineStyle?.split(' ') || [];
+    const inlineWidthArr = props.inlineWidth?.toString().split(' ') || [];
 
     /*
       Map and prioritize possible values.
