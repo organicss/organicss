@@ -1,0 +1,43 @@
+// All props are optional and default to null
+.border-radius(
+    @bottomLeft: null;
+    @bottomRight: null;
+    @radius: null;
+    @topLeft: null;
+    @topRight: null;
+) {
+    // General value that apply to more than one side
+    & when not (@radius = null) {
+        border-radius: @radius;
+    }
+
+    // Side specific values to overwrite any general values
+    & when not (@bottomRight = null) {
+        border-end-end-radius: @bottomRight;
+    }
+    & when not (@bottomLeft = null) {
+        border-end-start-radius: @bottomLeft;
+    }
+    & when not (@topRight = null) {
+        border-start-end-radius: @topRight;
+    }
+    & when not (@topLeft = null) {
+        border-start-start-radius: @topLeft;
+    }
+
+    @supports not (border-end-end-radius: 1rem) {
+        // Side-specific fallbacks to override any general values
+        & when not (@bottomLeft = null) {
+            border-bottom-left-radius: @bottomLeft;
+        }
+        & when not (@bottomRight = null) {
+            border-bottom-right-radius: @bottomRight;
+        }
+        & when not (@topLeft = null) {
+            border-top-left-radius: @topLeft;
+        }
+        & when not (@topRight = null) {
+            border-top-right-radius: @topRight;
+        }
+    }
+}
