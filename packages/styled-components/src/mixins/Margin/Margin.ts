@@ -34,7 +34,7 @@ function Margin(props: MarginProps): FlattenSimpleInterpolation {
         margin-block: ${props.block};
         margin-inline: ${props.inline};
 
-        // If an axis value exists, don't duplicate the style
+        /* If an axis value exists, don't duplicate the style */
         margin-block-end: ${props.blockEnd};
         margin-block-start: ${props.blockStart};
         margin-inline-end: ${props.inlineEnd};
