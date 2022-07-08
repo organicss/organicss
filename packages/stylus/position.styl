@@ -1,0 +1,95 @@
+@import './utils/maps'
+
+// All props are optional and default to false
+position(blockEnd = false, blockStart = false, float = false, inlineEnd = false, inlineStart = false, inset = false) {
+    // Get possible inset list length to manually map to @supports fallbacks
+    insetLength = length(inset)
+
+    // If float is a directional value, map it to use its logical equivalent
+    if (float == left || (float == right)) {
+        float: logicalMap[float]
+    } else if (float) {
+        // Else use the raw float value(eg: none, unset, start ...)
+        float float
+    }
+
+    // General value that apply to more than one side
+    if (inset) {
+        inset inset
+    }
+
+    // Side specific scroll values to overwrite any general values
+    if (blockEnd) {
+        inset-block-end blockEnd
+    }
+
+    if (blockStart) {
+        inset-block-start blockStart
+    }
+
+    if (inlineEnd) {
+        inset-inline-end inlineEnd
+    }
+
+    if (inlineStart) {
+        inset-inline-start inlineStart
+    }
+
+    // FLOAT FALLBACK
+    // Because the inset property doesn't have a direct fallback equivalent
+    // the $inset values are manually mapped to their directional side
+    @supports not (float inline-end) {
+        if (float == inline-end || (float == inline-start)) {
+            float: logicalMap[float]
+        } else if (float) {
+            float float
+        }
+    }
+
+    // INSET FALLBACK
+    // Because the inset property doesn't have a direct fallback equivalent
+    // the $inset values are manually mapped to their directional side
+    @supports not (inset 1rem) {
+        if (inset && (insetLength == 1)) {
+            bottom: inset[0]
+            left: inset[0]
+            right: inset[0]
+            top: inset[0]
+        } else if (insetLength == 2) {
+            bottom: inset[0]
+            left: inset[1]
+            right: inset[1]
+            top: inset[0]
+        } else if (insetLength == 3) {
+            bottom: inset[2]
+            left: inset[1]
+            right: inset[1]
+            top: inset[0]
+        } else if (insetLength == 4) {
+            bottom: inset[2]
+            left: inset[3]
+            right: inset[1]
+            top: inset[0]
+        }
+    }
+
+    // SIDE-SPECIFIC FALLBACKS
+    // These will override any values from the inset fallback
+    @supports not (inset-block-end 1rem) {
+        if (blockEnd) {
+            bottom blockEnd
+        }
+
+        if (inlineStart) {
+            left inlineStart
+        }
+
+        if (inlineEnd) {
+            right inlineEnd
+        }
+
+        if (blockStart) {
+            top blockStart
+        }
+    }
+}
