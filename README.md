@@ -8,7 +8,7 @@ CSS in many different flavors.
 ## Getting Started
 
 To get started using OrganiCSS, install one of the available packages – [SCSS](./packages/scss/),
-[Styled Components](#packages), [Stylus](./packages/stylus/) or [Less](#packages).
+[Styled Components](#packages), [Stylus](./packages/stylus/) or [Less](./packages/less/).
 
 ```bash
 npm i @organicss/scss
@@ -81,7 +81,7 @@ And that's exactly what CSS Logical Properties do."
 
 | Package                      | Version                                                                                                          |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| LESS                         | Coming soon                                                                                                      |
+| [Less](./packages/less/)     | [![npm version](https://badge.fury.io/js/@organicss%2Fless.svg)](https://badge.fury.io/js/@organicss%2Fless)     |
 | [SCSS](./packages/scss/)     | [![npm version](https://badge.fury.io/js/@organicss%2Fscss.svg)](https://badge.fury.io/js/@organicss%2Fscss)     |
 | Styled Components            | Coming soon                                                                                                      |
 | [Stylus](./packages/stylus/) | [![npm version](https://badge.fury.io/js/@organicss%2Fstylus.svg)](https://badge.fury.io/js/@organicss%2Fstylus) |
