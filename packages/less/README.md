@@ -6,7 +6,7 @@
 
 [![npm version](https://badge.fury.io/js/@organicss%2Fless.svg)](https://badge.fury.io/js/@organicss%2Fless)
 
-The OrganiCSS Less package provides a collection of [Less CSS)](https://lesscss.org/) mixins to
+The OrganiCSS Less package provides a collection of [Less CSS](https://lesscss.org/) mixins to
 support writing progressively-enhanced logical CSS with. The mixins will generate logical CSS
 properties first, with fallbacks to catch when not supported.
 
