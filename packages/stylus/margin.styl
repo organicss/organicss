@@ -69,7 +69,7 @@ margin(block = false, blockEnd = false, blockStart = false, inline = false, inli
     }
 
     if (blockEnd || block) {
-      margin-bottom: blockEnd || (block[1]) || (block[0])
+      margin-bottom: blockEnd || (block[1]) || block
     }
 
     if (inlineStart || inline) {
@@ -77,7 +77,7 @@ margin(block = false, blockEnd = false, blockStart = false, inline = false, inli
     }
 
     if (inlineEnd || inline) {
-      margin-right: inlineEnd || (inline[1]) || (inline[0])
+      margin-right: inlineEnd || (inline[1]) || inline
     }
   }
 
@@ -88,7 +88,7 @@ margin(block = false, blockEnd = false, blockStart = false, inline = false, inli
     }
 
     if (scrollBlockEnd || scrollBlock) {
-      scroll-margin-bottom: scrollBlockEnd || (scrollBlock[1]) || (scrollBlock[0])
+      scroll-margin-bottom: scrollBlockEnd || (scrollBlock[1]) || scrollBlock
     }
 
     if (scrollInlineStart || scrollInline) {
@@ -96,7 +96,7 @@ margin(block = false, blockEnd = false, blockStart = false, inline = false, inli
     }
 
     if (scrollInlineEnd || scrollInline) {
-      scroll-margin-right: scrollInlineEnd || (scrollInline[1]) || (scrollInline[0])
+      scroll-margin-right: scrollInlineEnd || (scrollInline[1]) || scrollInline
     }
   }
 }
