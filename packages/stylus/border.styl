@@ -1,5 +1,6 @@
 // All props are optional and default to false
 border(border = false, borderColor = false, borderStyle = false, borderWidth = false, block = false, blockColor = false, blockStyle = false, blockWidth = false, blockEnd = false, blockEndColor = false, blockEndStyle = false, blockEndWidth = false, blockStart = false, blockStartColor = false, blockStartStyle = false, blockStartWidth = false, inline = false, inlineColor = false, inlineStyle = false, inlineWidth = false, inlineEnd = false, inlineEndColor = false, inlineEndStyle = false, inlineEndWidth = false, inlineStart = false, inlineStartColor = false, inlineStartStyle = false, inlineStartWidth = false) {
+    // Wrap each property in a conditional to avoid empty/invalid styles from being generated
     // General value that apply to more than one side
     if (border) {
         border border
