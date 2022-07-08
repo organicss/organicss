@@ -20,7 +20,6 @@ export type MarginProps = {
 };
 
 export type FormattedMarginProps = {
-    a?: DefaultValue;
     b?: DefaultValue;
     l?: DefaultValue;
     r?: DefaultValue;

@@ -15,14 +15,12 @@ function Margin(props: MarginProps): FlattenSimpleInterpolation {
       3. Axis general values are used last
     */
     const marginFallback: FormattedMarginProps = {
-        a: props.margin,
         b: props.blockEnd || blockArr?.[1] || props.block,
         l: props.inlineStart || inlineArr?.[0],
         r: props.inlineEnd || inlineArr?.[1] || props.inline,
         t: props.blockStart || blockArr?.[0],
     };
     const scrollFallback: FormattedMarginProps = {
-        a: props.scroll,
         b: props.scrollBlockEnd || scrollBlockArr?.[1] || props.scrollBlock,
         l: props.scrollInlineStart || scrollInlineArr?.[0],
         r: props.scrollInlineEnd || scrollInlineArr?.[1] || props.scrollInline,
