@@ -9,6 +9,7 @@
         "packages/*"
     ],
     "scripts": {
+        "less": "yarn workspace @organicss/less",
         "scss": "yarn workspace @organicss/scss",
         "stylus": "yarn workspace @organicss/stylus",
         "lint": "eslint",
