@@ -64,39 +64,39 @@ padding(block = false, blockEnd = false, blockStart = false, inline = false, inl
 
   @supports not (padding-block-end 1rem) {
     // Side-specific fallbacks or axis-specific fallbacks
-    if (blockStart || (block[0])) {
+    if (blockStart || block) {
       padding-top: blockStart || (block[0])
     }
 
-    if (blockEnd || (block[1])) {
-      padding-bottom: blockEnd || (block[1])
+    if (blockEnd || block) {
+      padding-bottom: blockEnd || (block[1]) || (block[0])
     }
 
-    if (inlineStart || (inline[0])) {
+    if (inlineStart || inline) {
       padding-left: inlineStart || (inline[0])
     }
 
-    if (inlineEnd || (inline[1])) {
-      padding-right: inlineEnd || (inline[1])
+    if (inlineEnd || inline) {
+      padding-right: inlineEnd || (inline[1]) || (inline[0])
     }
   }
 
   @supports not (scroll-padding-block 1rem) {
     // Side-specific fallbacks or axis-specific fallbacks
-    if (scrollBlockStart || (scrollBlock[0])) {
+    if (scrollBlockStart || scrollBlock) {
       scroll-padding-top: scrollBlockStart || (scrollBlock[0])
     }
 
-    if (scrollBlockEnd || (scrollBlock[1])) {
-      scroll-padding-bottom: scrollBlockEnd || (scrollBlock[1])
+    if (scrollBlockEnd || scrollBlock) {
+      scroll-padding-bottom: scrollBlockEnd || (scrollBlock[1]) || (scrollBlock[0])
     }
 
-    if (scrollInlineStart || (scrollInline[0])) {
+    if (scrollInlineStart || scrollInline) {
       scroll-padding-left: scrollInlineStart || (scrollInline[0])
     }
 
-    if (scrollInlineEnd || (scrollInline[1])) {
-      scroll-padding-right: scrollInlineEnd || (scrollInline[1])
+    if (scrollInlineEnd || scrollInline) {
+      scroll-padding-right: scrollInlineEnd || (scrollInline[1]) || (scrollInline[0])
     }
   }
 }
