@@ -210,11 +210,13 @@ To use the different OrganiCSS Less mixins, first import them into an existing `
 }
 ```
 
-| Prop         | Type                                                                          | CSS Property (_Fallback_)       |
-| ------------ | ----------------------------------------------------------------------------- | ------------------------------- |
-| @blockEnd    | -                                                                             | inset-block-end (_bottom_)      |
-| @blockStart  | -                                                                             | inset-block-start (_top_)       |
-| @float       | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/float#syntax) | float                           |
-| @inlineEnd   | -                                                                             | inset-inline-end (_right_)      |
-| @inlineStart | -                                                                             | inset-inline-start (_left_)     |
-| @inset       | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/inset#syntax) | inset (_top/right/bottom/left_) |
+| Prop         | Type                                                                                 | CSS Property (_Fallback_)       |
+| ------------ | ------------------------------------------------------------------------------------ | ------------------------------- |
+| @block       | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block#syntax)  | inset-block (_top/bottom_)      |
+| @blockEnd    | -                                                                                    | inset-block-end (_bottom_)      |
+| @blockStart  | -                                                                                    | inset-block-start (_top_)       |
+| @float       | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/float#syntax)        | float                           |
+| @inline      | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline#syntax) | inset-inline (_left/right_)     |
+| @inlineEnd   | -                                                                                    | inset-inline-end (_right_)      |
+| @inlineStart | -                                                                                    | inset-inline-start (_left_)     |
+| @inset       | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/inset#syntax)        | inset (_top/right/bottom/left_) |
