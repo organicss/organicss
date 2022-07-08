@@ -1,0 +1,229 @@
+// All props are optional and default to null
+.border(
+    @border: null,
+    @borderColor: null,
+    @borderStyle: null,
+    @borderWidth: null,
+    @block: null,
+    @blockColor: null,
+    @blockStyle: null,
+    @blockWidth: null,
+    @blockEnd: null,
+    @blockEndColor: null,
+    @blockEndStyle: null,
+    @blockEndWidth: null,
+    @blockStart: null,
+    @blockStartColor: null,
+    @blockStartStyle: null,
+    @blockStartWidth: null,
+    @inline: null,
+    @inlineColor: null,
+    @inlineStyle: null,
+    @inlineWidth: null,
+    @inlineEnd: null,
+    @inlineEndColor: null,
+    @inlineEndStyle: null,
+    @inlineEndWidth: null,
+    @inlineStart: null,
+    @inlineStartColor: null,
+    @inlineStartStyle: null,
+    @inlineStartWidth: null
+) {
+    // General value that apply to more than one side
+    & when not (@border = null) {
+        border: @border;
+    }
+    & when not (@borderColor = null) {
+        border-color: @borderColor;
+    }
+    & when not (@borderStyle = null) {
+        border-style: @borderStyle;
+    }
+    & when not (@borderWidth = null) {
+        border-width: @borderWidth;
+    }
+
+    // Axis specific values to apply to two sides
+    & when not (@block = null) {
+        border-block: @block;
+    }
+    & when not (@blockColor = null) {
+        border-block-color: @blockColor;
+    }
+    & when not (@blockStyle = null) {
+        border-block-style: @blockStyle;
+    }
+    & when not (@blockWidth = null) {
+        border-block-width: @blockWidth;
+    }
+
+    & when not (@inline = null) {
+        border-inline: @inline;
+    }
+    & when not (@inlineColor = null) {
+        border-inline-color: @inlineColor;
+    }
+    & when not (@inlineStyle = null) {
+        border-inline-style: @inlineStyle;
+    }
+    & when not (@inlineWidth = null) {
+        border-inline-width: @inlineWidth;
+    }
+
+    // Side specific values to overwrite any general or axis values
+    & when not (@blockEnd = null) {
+        border-block-end: @blockEnd;
+    }
+    & when not (@blockEndColor = null) {
+        border-block-end-color: @blockEndColor;
+    }
+    & when not (@blockEndStyle = null) {
+        border-block-end-style: @blockEndStyle;
+    }
+    & when not (@blockEndWidth = null) {
+        border-block-end-width: @blockEndWidth;
+    }
+
+    & when not (@blockStart = null) {
+        border-block-start: @blockStart;
+    }
+    & when not (@blockStartColor = null) {
+        border-block-start-color: @blockStartColor;
+    }
+    & when not (@blockStartStyle = null) {
+        border-block-start-style: @blockStartStyle;
+    }
+    & when not (@blockStartWidth = null) {
+        border-block-start-width: @blockStartWidth;
+    }
+
+    & when not (@inlineEnd = null) {
+        border-inline-end: @inlineEnd;
+    }
+    & when not (@inlineEndColor = null) {
+        border-inline-end-color: @inlineEndColor;
+    }
+    & when not (@inlineEndStyle = null) {
+        border-inline-end-style: @inlineEndStyle;
+    }
+    & when not (@inlineEndWidth = null) {
+        border-inline-end-width: @inlineEndWidth;
+    }
+
+    & when not (@inlineStart = null) {
+        border-inline-start: @inlineStart;
+    }
+    & when not (@inlineStartColor = null) {
+        border-inline-start-color: @inlineStartColor;
+    }
+    & when not (@inlineStartStyle = null) {
+        border-inline-start-style: @inlineStartStyle;
+    }
+    & when not (@inlineStartWidth = null) {
+        border-inline-start-width: @inlineStartWidth;
+    }
+
+    @supports not (border-block-end: 1rem solid red) {
+        // The properties block/inline do not accept lists, so they are used as the side specific fallback
+        // However, block/inline-color/style/width do accept lists so .nth is used to map the sides
+        & when (not (@blockEnd = null) or not (@block = null)) {
+            border-bottom: if(not (@blockEnd =null), @blockEnd, @block);
+        }
+        & when (not (@blockEndColor = null) or not (@blockColor = null)) {
+            border-bottom-color: if(
+                not (@blockEndColor = null),
+                @blockEndColor,
+                if(length(@blockColor) = 2, extract(@blockColor, 2), extract(@blockColor, 1))
+            );
+        }
+        & when (not (@blockEndStyle = null) or not (@blockStyle = null)) {
+            border-bottom-style: if(
+                not (@blockEndStyle = null),
+                @blockEndStyle,
+                if(length(@blockStyle) = 2, extract(@blockStyle, 2), extract(@blockStyle, 1))
+            );
+        }
+        & when (not (@blockEndWidth = null) or not (@blockWidth = null)) {
+            border-bottom-width: if(
+                not (@blockEndWidth = null),
+                @blockEndWidth,
+                if(length(@blockWidth) = 2, extract(@blockWidth, 2), extract(@blockWidth, 1))
+            );
+        }
+
+        & when (not (@blockStart = null) or not (@block = null)) {
+            border-top: if(not (@blockStart =null), @blockStart, @block);
+        }
+        & when (not (@blockStartColor = null) or not (@blockColor = null)) {
+            border-top-color: if(
+                not (@blockStartColor = null),
+                @blockStartColor,
+                extract(@blockColor, 1)
+            );
+        }
+        & when (not (@blockStartStyle = null) or not (@blockStyle = null)) {
+            border-top-style: if(
+                not (@blockStartStyle = null),
+                @blockStartStyle,
+                extract(@blockStyle, 1)
+            );
+        }
+        & when (not (@blockStartWidth = null) or not (@blockWidth = null)) {
+            border-top-width: if(
+                not (@blockStartWidth = null),
+                @blockStartWidth,
+                extract(@blockWidth, 1)
+            );
+        }
+
+        & when (not (@inlineEnd = null) or not (@inline = null)) {
+            border-right: if(not (@inlineEnd =null), @inlineEnd, @inline);
+        }
+        & when (not (@inlineEndColor = null) or not (@inlineColor = null)) {
+            border-right-color: if(
+                not (@inlineEndColor = null),
+                @inlineEndColor,
+                if(length(@inlineColor) = 2, extract(@inlineColor, 2), extract(@inlineColor, 1))
+            );
+        }
+        & when (not (@inlineEndStyle = null) or not (@inlineStyle = null)) {
+            border-right-style: if(
+                not (@inlineEndStyle = null),
+                @inlineEndStyle,
+                if(length(@inlineStyle) = 2, extract(@inlineStyle, 2), extract(@inlineStyle, 1))
+            );
+        }
+        & when (not (@inlineEndWidth = null) or not (@inlineWidth = null)) {
+            border-right-width: if(
+                not (@inlineEndWidth = null),
+                @inlineEndWidth,
+                if(length(@inlineWidth) = 2, extract(@inlineWidth, 2), extract(@inlineWidth, 1))
+            );
+        }
+
+        & when (not (@inlineStart = null) or not (@inline = null)) {
+            border-top: if(not (@inlineStart =null), @inlineStart, @inline);
+        }
+        & when (not (@inlineStartColor = null) or not (@inlineColor = null)) {
+            border-top-color: if(
+                not (@inlineStartColor = null),
+                @inlineStartColor,
+                extract(@inlineColor, 1)
+            );
+        }
+        & when (not (@inlineStartStyle = null) or not (@inlineStyle = null)) {
+            border-top-style: if(
+                not (@inlineStartStyle = null),
+                @inlineStartStyle,
+                extract(@inlineStyle, 1)
+            );
+        }
+        & when (not (@inlineStartWidth = null) or not (@inlineWidth = null)) {
+            border-top-width: if(
+                not (@inlineStartWidth = null),
+                @inlineStartWidth,
+                extract(@inlineWidth, 1)
+            );
+        }
+    }
+}
