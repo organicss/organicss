@@ -1,7 +1,7 @@
 @import './utils/maps'
 
 // All props are optional and default to false
-position(blockEnd = false, blockStart = false, float = false, inlineEnd = false, inlineStart = false, inset = false) {
+position(block = false, blockEnd = false, blockStart = false, float = false, inline = false, inlineEnd = false, inlineStart = false, inset = false) {
     // Wrap each property in a conditional to avoid empty/invalid styles from being generated
     // Get possible inset list length to manually map to @supports fallbacks
     insetLength = length(inset)
@@ -19,7 +19,16 @@ position(blockEnd = false, blockStart = false, float = false, inlineEnd = false,
         inset inset
     }
 
-    // Side specific scroll values to overwrite any general values
+    // Axis specific values to apply to two sides
+    if (block) {
+        inset-block block
+    }
+
+    if (inline) {
+        inset-inline inline
+    }
+
+    // Side specific scroll values to overwrite any general or axis values
     if (blockEnd) {
         inset-block-end blockEnd
     }
@@ -77,20 +86,20 @@ position(blockEnd = false, blockStart = false, float = false, inlineEnd = false,
     // SIDE-SPECIFIC FALLBACKS
     // These will override any values from the inset fallback
     @supports not (inset-block-end 1rem) {
-        if (blockEnd) {
-            bottom blockEnd
+        if (blockEnd || block) {
+            bottom: blockEnd || (block[1] || (block[0]))
         }
 
-        if (inlineStart) {
-            left inlineStart
+        if (inlineStart || inline) {
+            left: inlineStart || (inline[0])
         }
 
-        if (inlineEnd) {
-            right inlineEnd
+        if (inlineEnd || inline) {
+            right: inlineEnd || (inline[1]) || (inline[0])
         }
 
-        if (blockStart) {
-            top blockStart
+        if (blockStart || block) {
+            top: blockStart || (block[0])
         }
     }
 }
