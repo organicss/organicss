@@ -2,6 +2,8 @@
   <img src="../../assets/organicss-logo-full.png" alt="OrganiCSS standard logo with icon and name" width="500" />
 </p>
 
+# Stylus
+
 [![npm version](https://badge.fury.io/js/@organicss%2Fstylus.svg)](https://badge.fury.io/js/@organicss%2Fstylus)
 
 The OrganiCSS SCSS package provides a collection of
@@ -30,31 +32,32 @@ To use the different OrganiCSS Stylus mixins, first import them into an existing
 
 ```styl
 // Import all mixins at once
-@import "/node_modules/@organicss/stylus";
+
+@import '/node_modules/@organicss/stylus'
 
 // Or import a specific mixin at a time.
-@import "/node_modules/@organicss/stylus/margin";
+
+@import '/node_modules/@organicss/stylus/margin'
 ```
 
 ### Using with CSS Custom Properties
 
 ```styl
-@import "/node_modules/@organicss/stylus/margin";
+@import '/node_modules/@organicss/stylus/margin'
 
-.container {
-  margin(blockStart: var(--space-lg));
-}
+.container
+    margin()
 ```
 
 ### Using with Stylus Variables
 
 ```styl
-@import "/node_modules/@organicss/stylus/margin";
+@import '/node_modules/@organicss/stylus/margin'
 
-space = var(--space-large);
-.container {
-  margin(blockStart: space);
-}
+space = var(--space-large)
+
+.container
+    margin()
 ```
 
 ## :book: Documentation

@@ -2,6 +2,8 @@
   <img src="../../assets/organicss-logo-full.png" alt="OrganiCSS standard logo with icon and name" width="500" />
 </p>
 
+# SCSS
+
 [![npm version](https://badge.fury.io/js/@organicss%2Fscss.svg)](https://badge.fury.io/js/@organicss%2Fscss)
 
 The OrganiCSS SCSS package provides a collection of
