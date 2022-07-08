@@ -1,0 +1,112 @@
+@import './utils/maps';
+
+// All props are optional and default to null
+.position(
+    @block: null;
+    @blockEnd: null;
+    @blockStart: null;
+    @float: null;
+    @inline: null;
+    @inlineEnd: null;
+    @inlineStart: null;
+    @inset: null;
+) {
+    // Get possible @inset list length to manually map to @supports fallbacks
+    @insetLength: length(@inset);
+
+    & when not (@float = null) {
+        float: if(@float = left or @float = right, @logicalMap[ @@float], @float);
+    }
+
+    // General value that apply to more than one side
+    & when not (@inset = null) {
+        inset: @inset;
+    }
+
+    // Axis specific values to apply to two sides
+    & when not (@block = null) {
+        inset-block: @block;
+    }
+    & when not (@inline = null) {
+        inset-inline: @inline;
+    }
+
+    // Side specific scroll values to overwrite any general or axis values
+    & when not (@blockEnd = null) {
+        inset-block-end: @blockEnd;
+    }
+    & when not (@blockStart = null) {
+        inset-block-start: @blockStart;
+    }
+    & when not (@inlineEnd = null) {
+        inset-inline-end: @inlineEnd;
+    }
+    & when not (@inlineStart = null) {
+        inset-inline-start: @inlineStart;
+    }
+
+    // --- FALLBACKS --- //
+    // FLOAT FALLBACK
+    @supports not (float: inline-end) {
+        &
+            when
+            ((@float = inline-end) or (@float = inline-start) or (@float = left) or (@float = right)) {
+            float: if(@float = inline-start or @float = inline-end, @logicalMap[ @@float], @float);
+        }
+    }
+
+    // INSET FALLBACK
+    // Because the inset property doesn't have a direct fallback equivalent
+    // the $inset values are manually mapped to their directional side
+    @supports not (inset: 1rem) {
+        & when (not (@inset = null)) and (@insetLength = 1) {
+            bottom: extract(@inset, 1);
+            left: extract(@inset, 1);
+            right: extract(@inset, 1);
+            top: extract(@inset, 1);
+        }
+        & when (@insetLength = 2) {
+            bottom: extract(@inset, 1);
+            left: extract(@inset, 2);
+            right: extract(@inset, 2);
+            top: extract(@inset, 1);
+        }
+        & when (@insetLength = 3) {
+            bottom: extract(@inset, 3);
+            left: extract(@inset, 2);
+            right: extract(@inset, 2);
+            top: extract(@inset, 1);
+        }
+        & when (@insetLength >= 4) {
+            bottom: extract(@inset, 3);
+            left: extract(@inset, 4);
+            right: extract(@inset, 2);
+            top: extract(@inset, 1);
+        }
+    }
+
+    // SIDE-SPECIFIC FALLBACKS
+    // These will override any values from the inset fallback
+    @supports not (inset-block-end: 1rem) {
+        & when (not (@blockEnd = null) or not (@block = null)) {
+            bottom: if(
+                not (@blockEnd = null),
+                @blockEnd,
+                if(length(@block) = 2, extract(@block, 2), extract(@block, 1))
+            );
+        }
+        & when (not (@inlineEnd = null) or not (@inline = null)) {
+            right: if(
+                not (@inlineEnd = null),
+                @inlineEnd,
+                if(length(@inline) = 2, extract(@inline, 2), extract(@inline, 1))
+            );
+        }
+        & when (not (@inlineStart = null) or not (@inline = null)) {
+            left: if(not (@inlineStart = null), @inlineStart, extract(@inline, 1));
+        }
+        & when (not (@blockStart = null) or not (@block = null)) {
+            top: if(not (@blockStart = null), @blockStart, extract(@block, 1));
+        }
+    }
+}
