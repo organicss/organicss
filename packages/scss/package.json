@@ -3,9 +3,7 @@
     "version": "1.0.0",
     "description": "OrganiCSS - SCSS is a collection of mixins to write progressively-enhanced logical CSS.",
     "main": "index.scss",
-    "scripts": {
-        "publish": "npm publish"
-    },
+    "scripts": {},
     "author": "Daniel Yuschick <daniel.yuschick@gmail.com>",
     "license": "ISC",
     "repository": {

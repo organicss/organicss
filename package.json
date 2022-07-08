@@ -4,11 +4,13 @@
     "private": true,
     "description": "OrganiCSS is a collection of mixins for writing logical CSS in different pre-processors and libraries.",
     "main": "index.js",
+    "packageManager": "yarn@3.1.1",
     "workspaces": [
         "packages/*"
     ],
     "scripts": {
         "scss": "yarn workspace @organicss/scss",
+        "stylus": "yarn workspace @organicss/stylus",
         "lint": "eslint",
         "lint:fix": "yarn lint -- --fix",
         "prettier": "prettier ./ --check",
