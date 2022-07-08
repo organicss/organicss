@@ -1,0 +1,171 @@
+@import './utils/maps'
+
+// All props are optional and default to false
+layout(blockSize = false, captionSide = false, clear = false, inlineSize = false, maxBlockSize = false, maxInlineSize = false, minBlockSize = false, minInlineSize = false, overflow = false, overflowBlock = false, overflowInline = false, overscrollBehavior = false, overscrollBehaviorBlock = false, overscrollBehaviorInline = false, resize = false, textAlign = false) {
+    // Wrap each property in a conditional to avoid empty/invalid styles from being generated
+    if (captionSide == top || (captionSide == bottom)) {
+        caption-side: logicalMap[captionSide]
+    } else if (captionSide) {
+        caption-side captionSide
+    }
+
+    if (clear == left || (clear == right)) {
+        clear: logicalMap[clear]
+    } else if (clear) {
+        clear clear
+    }
+
+    if (resize == horizontal || (resize == vertical)) {
+        resize: logicalMap[resize]
+    } else if (resize) {
+        resize resize
+    }
+
+    if (textAlign == left || (textAlign == right)) {
+        text-align: alignmentMap[textAlign]
+    } else if (textAlign) {
+        text-align textAlign
+    }
+
+    if (blockSize) {
+        block-size blockSize
+    }
+
+    if (maxBlockSize) {
+        max-block-size maxBlockSize
+    }
+
+    if (minBlockSize) {
+        min-block-size minBlockSize
+    }
+
+    if (inlineSize) {
+        inline-size inlineSize
+    }
+
+    if (maxInlineSize) {
+        max-inline-size maxInlineSize
+    }
+
+    if (minInlineSize) {
+        min-inline-size minInlineSize
+    }
+
+    if (overflow) {
+        overflow overflow
+    }
+
+    if (overflowBlock) {
+        overflow-block overflowBlock
+    }
+
+    if (overflowInline) {
+        overflow-inline overflowInline
+    }
+
+    if (overscrollBehavior) {
+        overscroll-behavior overscrollBehavior
+    }
+
+    if (overscrollBehaviorBlock) {
+        overscroll-behavior-block overscrollBehaviorBlock
+    }
+
+    if (overscrollBehaviorInline) {
+        overscroll-behavior-inline overscrollBehaviorInline
+    }
+
+    @supports not (caption-side block-start) {
+        // If captionSide is a logical value, map it to its directional value fallback
+        if (captionSide == block-start || (captionSide == block-end)) {
+            caption-side: logicalMap[captionSide]
+        } else if (captionSide) {
+            // Else use the raw captionSide value
+            caption-side captionSide
+        }
+    }
+
+    @supports not (clear inline-start) {
+        if (clear == inline-start || (clear == inline-end)) {
+            // If clear is a logical value, map it to its directional value fallback
+            clear: logicalMap[clear]
+        } else if (clear) {
+            // Else use the raw clear value
+            clear clear
+        }
+    }
+
+    @supports not (resize block) {
+        if (logicalMap[resize]) {
+            // If the resize value isn't in the logical map, we don't need a fallback
+            if (resize == inline || (resize == block)) {
+                // If resize is a logical value, map it to its directional value fallback
+                resize: logicalMap[resize]
+            } else if (resize) {
+                // Else use the raw resize value
+                resize resize
+            }
+        }
+    }
+
+    @supports not (text-align start) {
+        if (alignmentMap[textAlign]) {
+            // If the textAlign value isn't in the logical map, we don't need a fallback
+            if (textAlign == start || (textAlign == end)) {
+                // If textAlign is a logical value, map it to its directional value fallback
+                text-align: alignmentMap[textAlign]
+            } else if (textAlign) {
+                // Else use the raw textAlign value
+                text-align textAlign
+            }
+        }
+    }
+
+    @supports not (block-size 1rem) {
+        if (blockSize) {
+            height blockSize
+        }
+
+        if (maxBlockSize) {
+            max-height maxBlockSize
+        }
+
+        if (minBlockSize) {
+            min-height minBlockSize
+        }
+    }
+
+    @supports not (inline-size 1rem) {
+        if (inlineSize) {
+            width inlineSize
+        }
+
+        if (maxInlineSize) {
+            max-width maxInlineSize
+        }
+
+        if (minInlineSize) {
+            min-width minInlineSize
+        }
+    }
+
+    @supports not (overflow-block auto) {
+        if (overflowInline) {
+            overflow-x overflowInline
+        }
+
+        if (overflowBlock) {
+            overflow-y overflowBlock
+        }
+    }
+
+    @supports not (overscroll-behavior-block auto) {
+        if (overscrollBehaviorInline) {
+            overscroll-behavior-x overscrollBehaviorInline
+        }
+
+        if (overscrollBehaviorBlock) {
+            overscroll-behavior-y overscrollBehaviorBlock
+        }
+    }
+}
