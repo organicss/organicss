@@ -1,6 +1,6 @@
 {
     "name": "@organicss/less",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "OrganiCSS - Less is a collection of mixins to write progressively-enhanced logical CSS.",
     "main": "index.less",
     "scripts": {},
