@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="organicss-logo-full.png" alt="OrganiCSS standard logo with icon and name" width="500" />
+  <img src="organicss-logo-full-500.png" alt="OrganiCSS standard logo with icon and name" width="500" />
 </p>
 
 # SCSS
@@ -10,9 +10,6 @@ The OrganiCSS SCSS package provides a collection of
 [Sass (Syntactically Awesome Style Sheets)](https://sass-lang.com/) mixins to support writing
 progressively-enhanced logical CSS with. The mixins will generate logical CSS properties first, with
 fallbacks to catch when not supported.
-
-> As of version 1.0.0, OrganiCSS supports all logical properties documented on
-> [MDN: CSS Logical Properties and Values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties).
 
 ## :robot: Installation
 

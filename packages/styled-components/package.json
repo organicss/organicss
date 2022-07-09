@@ -1,6 +1,6 @@
 {
     "name": "@organicss/styled-components",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "OrganiCSS - Styled Components is a collection of mixins to write progressively-enhanced logical CSS.",
     "main": "dist/index.js",
     "module": "dist/index.js",
