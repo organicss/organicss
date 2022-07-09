@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./organicss-logo-full-500.png" alt="OrganiCSS standard logo with icon and name" width="500" />
+  <img src="/assets/organicss-logo-full.png" alt="OrganiCSS standard logo with icon and name" width="500" />
 </p>
 
 # Less
