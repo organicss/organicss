@@ -3,6 +3,6 @@ require('esbuild').buildSync({
     bundle: true,
     minify: true,
     outdir: 'dist',
-    external: ['styled-components'],
+    external: ['@emotion/css'],
     format: 'esm',
 });
