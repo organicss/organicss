@@ -1,6 +1,6 @@
 {
     "name": "@organicss/emotion",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "OrganiCSS - Emotion is a collection of mixins to write progressively-enhanced logical CSS.",
     "main": "dist/index.js",
     "module": "dist/index.js",
