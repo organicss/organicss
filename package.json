@@ -9,6 +9,7 @@
         "packages/*"
     ],
     "scripts": {
+        "emotion": "yarn workspace @organicss/emotion",
         "less": "yarn workspace @organicss/less",
         "styled-components": "yarn workspace @organicss/styled-components",
         "scss": "yarn workspace @organicss/scss",
