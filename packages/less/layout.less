@@ -145,6 +145,20 @@
         }
     }
 
+    @supports not (text-align-last: end) {
+        // Not all @textAlignLast values need a fallback (eg: center, justify)
+        // If @textAlignLast is a logical value, map it to the directional value. Else use the directional value
+        &
+            when
+            ((@textAlignLast = start) or (@textAlignLast = end) or (@textAlignLast = left) or (@textAlignLast = right)) {
+            text-align-last: if(
+                @textAlignLast = start or @textAlignLast = end,
+                @alignmentMap[ @@textAlignLast],
+                @textAlignLast
+            );
+        }
+    }
+
     @supports not (block-size: 1rem) {
         & when not (@blockSize = null) {
             height: @blockSize;
