@@ -14,6 +14,15 @@ export type TextAlign =
     | 'right'
     | 'start'
     | string;
+export type TextAlignLast =
+    | GlobalValue
+    | 'auto'
+    | 'center'
+    | 'end'
+    | 'justify'
+    | 'left'
+    | 'right'
+    | 'start';
 export type Clear =
     | GlobalValue
     | 'both'
@@ -48,4 +57,5 @@ export type LayoutProps = {
     overscrollBehaviorInline?: OverscrollBehavior;
     resize?: Resize;
     textAlign?: TextAlign;
+    textAlignLast?: TextAlignLast;
 };
