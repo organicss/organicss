@@ -16,6 +16,9 @@ function Layout(props: LayoutProps): CSSInterpolation {
         text-align: ${props.textAlign === 'left' || props.textAlign === 'right'
             ? alignmentMap[props.textAlign]
             : props.textAlign};
+        text-align-last: ${props.textAlignLast === 'left' || props.textAlignLast === 'right'
+            ? alignmentMap[props.textAlignLast]
+            : props.textAlignLast};
 
         block-size: ${props.blockSize};
         max-block-size: ${props.maxBlockSize};
@@ -68,6 +71,16 @@ function Layout(props: LayoutProps): CSSInterpolation {
                 text-align: ${props.textAlign === 'start' || props.textAlign === 'end'
                     ? alignmentMap[props.textAlign]
                     : props.textAlign};
+            }
+        `};
+
+        ${props.textAlignLast &&
+        alignmentMap.hasOwnProperty(props.textAlignLast) &&
+        css`
+            @supports not (text-align-last: end) {
+                text-align-last: ${props.textAlignLast === 'start' || props.textAlignLast === 'end'
+                    ? alignmentMap[props.textAlignLast]
+                    : props.textAlignLast};
             }
         `};
 

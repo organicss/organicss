@@ -1,7 +1,7 @@
 @import './utils/maps'
 
 // All props are optional and default to false
-layout(blockSize = false, captionSide = false, clear = false, inlineSize = false, maxBlockSize = false, maxInlineSize = false, minBlockSize = false, minInlineSize = false, overflow = false, overflowBlock = false, overflowInline = false, overscrollBehavior = false, overscrollBehaviorBlock = false, overscrollBehaviorInline = false, resize = false, textAlign = false) {
+layout(blockSize = false, captionSide = false, clear = false, inlineSize = false, maxBlockSize = false, maxInlineSize = false, minBlockSize = false, minInlineSize = false, overflow = false, overflowBlock = false, overflowInline = false, overscrollBehavior = false, overscrollBehaviorBlock = false, overscrollBehaviorInline = false, resize = false, textAlign = false, textAlignLast = false) {
     // Wrap each property in a conditional to avoid empty/invalid styles from being generated
     if (captionSide == top || (captionSide == bottom)) {
         caption-side: logicalMap[captionSide]
@@ -25,6 +25,12 @@ layout(blockSize = false, captionSide = false, clear = false, inlineSize = false
         text-align: alignmentMap[textAlign]
     } else if (textAlign) {
         text-align textAlign
+    }
+
+    if (textAlignLast == left || (textAlignLast == right)) {
+        text-align-last: alignmentMap[textAlignLast]
+    } else if (textAlignLast) {
+        text-align-last textAlignLast
     }
 
     if (blockSize) {
@@ -117,6 +123,19 @@ layout(blockSize = false, captionSide = false, clear = false, inlineSize = false
             } else if (textAlign) {
                 // Else use the raw textAlign value
                 text-align textAlign
+            }
+        }
+    }
+
+    @supports not (text-align-last end) {
+        if (alignmentMap[textAlignLast]) {
+            // If the textAlignLast value isn't in the logical map, we don't need a fallback
+            if (textAlignLast == start || (textAlignLast == end)) {
+                // If textAlignLast is a logical value, map it to its directional value fallback
+                text-align-last: alignmentMap[textAlignLast]
+            } else if (textAlignLast) {
+                // Else use the raw textAlignLast value
+                text-align-last textAlignLast
             }
         }
     }

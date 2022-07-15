@@ -145,6 +145,7 @@ To use the different OrganiCSS SCSS mixins, first import them into an existing `
 | $overscrollBehaviorInline | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior#syntax) | overscroll-behavior-inline (_overscroll-behavior-y_) |
 | $resize                   | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/resize#syntax)              | resize                                               |
 | $textAlign                | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align#syntax)          | text-align                                           |
+| $textAlignLast            | [See MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last#syntax)     | text-align-last                                      |
 
 ### Margin
 
