@@ -19,7 +19,8 @@
     $overscrollBehaviorBlock: null,
     $overscrollBehaviorInline: null,
     $resize: null,
-    $textAlign: null
+    $textAlign: null,
+    $textAlignLast: null
 ) {
     // If $captionSide is a directional value, map it to use its logical equivalent
     @if $captionSide == top or $captionSide == bottom {
@@ -51,6 +52,14 @@
     } @else {
         // Else use the raw $textAlign value
         text-align: $textAlign;
+    }
+
+    // If $textAlignLast is a directional value, map it to use its logical equivalent
+    @if $textAlignLast == left or $textAlignLast == right {
+        text-align-last: map.get($alignmentMap, $textAlignLast);
+    } @else {
+        // Else use the raw $textAlignLast value
+        text-align-last: $textAlignLast;
     }
 
     block-size: $blockSize;
@@ -110,6 +119,18 @@
             } @else {
                 // Else use the raw $textAlign value
                 text-align: $textAlign;
+            }
+        }
+    }
+
+    @if map.get($alignmentMap, $textAlignLast) {
+        @supports not (text-align-last: end) {
+            // If $textAlignLast is a logical value, map it to its directional value fallback
+            @if $textAlignLast == start or $textAlignLast == end {
+                text-align-last: map.get($alignmentMap, $textAlignLast);
+            } @else {
+                // Else use the raw $textAlignLast value
+                text-align-last: $textAlignLast;
             }
         }
     }

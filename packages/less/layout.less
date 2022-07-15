@@ -18,6 +18,7 @@
     @overscrollBehaviorInline: null;
     @resize: null;
     @textAlign: null;
+    @textAlignLast: null;
 ) {
     & when not (@captionSide = null) {
         // If @captionSide is a directional value, map it to use its logical equivalent
@@ -48,6 +49,16 @@
             @textAlign = left or @textAlign = right,
             @alignmentMap[ @@textAlign],
             @textAlign
+        );
+    }
+
+    & when not (@textAlignLast = null) {
+        // If @textAlignLast is a directional value, map it to use its logical equivalent
+        // Else use the raw @textAlignLast value
+        text-align-last: if(
+            @textAlignLast = left or @textAlignLast = right,
+            @alignmentMap[ @@textAlignLast],
+            @textAlignLast
         );
     }
 
@@ -130,6 +141,20 @@
                 @textAlign = start or @textAlign = end,
                 @alignmentMap[ @@textAlign],
                 @textAlign
+            );
+        }
+    }
+
+    @supports not (text-align-last: end) {
+        // Not all @textAlignLast values need a fallback (eg: center, justify)
+        // If @textAlignLast is a logical value, map it to the directional value. Else use the directional value
+        &
+            when
+            ((@textAlignLast = start) or (@textAlignLast = end) or (@textAlignLast = left) or (@textAlignLast = right)) {
+            text-align-last: if(
+                @textAlignLast = start or @textAlignLast = end,
+                @alignmentMap[ @@textAlignLast],
+                @textAlignLast
             );
         }
     }
